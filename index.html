@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>戦争と日本経済ニュース｜ミライの漫画解説</title>
 
 <style>
+
 body{
 font-family:Arial;
 background:#0f172a;
@@ -24,78 +26,42 @@ border-radius:10px;
 a{
 color:#38bdf8;
 }
+
+#mirai{
+position:fixed;
+bottom:20px;
+left:0;
+width:70px;
+}
+
 </style>
 
 </head>
-<script>
 
-mirai.onclick = function(){
-
-let q = [
-"戦争が起きると上がりやすいものは？",
-"世界ニュースで影響を受けるのは？",
-"日本経済に影響するのは？"
-]
-
-let r = Math.floor(Math.random()*q.length)
-
-alert("ミライクイズ！\n\n" + q[r])
-
-}
-
-</script>
 <body>
 
 <h1>戦争と日本経済ニュース</h1>
+
 <p>ミライとソウマが世界ニュースを漫画で解説</p>
 
 <div class="card">
 <h2>サイト準備中</h2>
 <p>ニュース生成システムを準備しています。</p>
 </div>
-  <h2>🔥 人気ニュース</h2>
+
+<h2>🔥 人気ニュース</h2>
 
 <div class="card">
-<a href="articles/news1.html">
-1位：世界戦争ニュース分析
-</a>
+<a href="articles/news1.html">1位：世界戦争ニュース分析</a>
 </div>
 
 <div class="card">
-2位：日本経済への影響
+<a href="articles/news2.html">2位：日本経済への影響</a>
 </div>
 
 <div class="card">
-3位：エネルギー価格の動き
+<a href="articles/news3.html">3位：エネルギー価格の動き</a>
 </div>
-<img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
-
-<script>
-
-const mirai = document.getElementById("mirai")
-
-let x = 0
-
-function walk(){
-
-x += 4
-
-if(x > window.innerWidth - 80){
-x = 0
-}
-
-mirai.style.left = x + "px"
-
-}
-
-setInterval(walk,150)
-
-mirai.style.position="fixed"
-mirai.style.bottom="20px"
-mirai.style.width="70px"
-
-</script>
-  <!-- ミライキャラ -->
 
 <img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
 
@@ -107,7 +73,7 @@ let x = 0
 
 function walk(){
 
-x += 4
+x += 3
 
 if(x > window.innerWidth - 80){
 x = 0
@@ -117,246 +83,9 @@ mirai.style.left = x + "px"
 
 }
 
-setInterval(walk,150)
-
-mirai.style.position="fixed"
-mirai.style.bottom="20px"
-mirai.style.width="70px"
-
-mirai.onclick = function(){
-
-alert(
-"ミライだよ！✨\n\n"+
-"新人ニュースキャスター\n\n"+
-"世界ニュースをわかりやすく説明するね！"
-)
-
-}
+setInterval(walk,100)
 
 </script>
-  <img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
 
-<style>
-
-#mirai{
-position:fixed;
-bottom:20px;
-left:0px;
-width:80px;
-transition:transform 0.2s;
-}
-
-.jump{
-transform:translateY(-120px);
-}
-
-.crouch{
-transform:scaleY(0.6);
-}
-
-</style>
-
-<script>
-
-const mirai = document.getElementById("mirai")
-
-let x = 0
-let direction = 1
-
-function walk(){
-
-x += 5 * direction
-
-if(x > window.innerWidth - 100){
-direction = -1
-}
-
-if(x < 0){
-direction = 1
-}
-
-mirai.style.left = x + "px"
-
-}
-
-setInterval(walk,80)
-
-mirai.onclick = function(){
-
-let r = Math.random()
-
-// ジャンプ
-if(r < 0.33){
-
-mirai.classList.add("jump")
-
-setTimeout(()=>{
-mirai.classList.remove("jump")
-},400)
-
-}
-
-// しゃがむ
-else if(r < 0.66){
-
-mirai.classList.add("crouch")
-
-setTimeout(()=>{
-mirai.classList.remove("crouch")
-},400)
-
-}
-
-// 画面割れ
-else{
-
-document.body.style.background="black"
-
-alert("ミライが画面を壊した！？😲")
-
-setTimeout(()=>{
-document.body.style.background="#0f172a"
-},500)
-
-}
-
-}
-
-</script>
-  <img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
-
-<style>
-
-#mirai{
-position:fixed;
-bottom:20px;
-left:0px;
-width:80px;
-transition:transform 0.2s;
-z-index:9999;
-}
-
-.jump{
-transform:translateY(-120px);
-}
-
-.crouch{
-transform:scaleY(0.6);
-}
-
-.shake{
-animation:shake 0.5s;
-}
-
-@keyframes shake{
-0%{transform:translateX(0);}
-25%{transform:translateX(-10px);}
-50%{transform:translateX(10px);}
-75%{transform:translateX(-10px);}
-100%{transform:translateX(0);}
-}
-
-</style>
-
-<script>
-
-const mirai = document.getElementById("mirai")
-
-let x = 0
-let direction = 1
-
-function walk(){
-
-x += 4 * direction
-
-if(x > window.innerWidth - 100){
-direction = -1
-}
-
-if(x < 0){
-direction = 1
-}
-
-mirai.style.left = x + "px"
-
-}
-
-setInterval(walk,80)
-
-mirai.onclick = function(){
-
-let r = Math.random()
-
-// ジャンプ
-if(r < 0.33){
-
-mirai.classList.add("jump")
-
-setTimeout(()=>{
-mirai.classList.remove("jump")
-},400)
-
-}
-
-// しゃがむ
-else if(r < 0.66){
-
-mirai.classList.add("crouch")
-
-setTimeout(()=>{
-mirai.classList.remove("crouch")
-},400)
-
-}
-
-// 画面揺れ
-else{
-
-document.body.classList.add("shake")
-
-setTimeout(()=>{
-document.body.classList.remove("shake")
-},500)
-
-alert("ミライ：ニュース速報だよ！✨")
-
-}
-
-}
-
-</script>
 </body>
 </html>
-<img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
-
-<script>
-
-const mirai = document.getElementById("mirai")
-
-let x = 50
-
-function walk(){
-
-x += 5
-
-if(x > window.innerWidth - 100){
-x = 0
-}
-
-mirai.style.left = x + "px"
-
-}
-
-setInterval(walk,200)
-
-mirai.style.position="fixed"
-mirai.style.bottom="20px"
-mirai.style.width="80px"
-
-mirai.onclick = function(){
-
-alert("ミライクイズ！次に世界で起きる大きなニュースは？")
-
-}
-
-</script>
