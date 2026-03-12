@@ -40,3 +40,36 @@ color:#38bdf8;
 
 </body>
 </html>
+<img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
+
+<script>
+
+const mirai = document.getElementById("mirai")
+
+let x = 50
+
+function walk(){
+
+x += 5
+
+if(x > window.innerWidth - 100){
+x = 0
+}
+
+mirai.style.left = x + "px"
+
+}
+
+setInterval(walk,200)
+
+mirai.style.position="fixed"
+mirai.style.bottom="20px"
+mirai.style.width="80px"
+
+mirai.onclick = function(){
+
+alert("ミライクイズ！次に世界で起きる大きなニュースは？")
+
+}
+
+</script>
