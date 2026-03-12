@@ -2,8 +2,10 @@
 <html>
 
 <head>
+
 <meta charset="UTF-8">
-<title>戦争と日本経済ニュース｜ミライの漫画解説</title>
+
+<title>戦争と日本経済ニュース｜ミライ解説</title>
 
 <style>
 
@@ -25,6 +27,15 @@ border-radius:10px;
 
 a{
 color:#38bdf8;
+text-decoration:none;
+}
+
+a:hover{
+text-decoration:underline;
+}
+
+h1{
+font-size:32px;
 }
 
 #mirai{
@@ -32,6 +43,28 @@ position:fixed;
 bottom:20px;
 left:0;
 width:70px;
+z-index:9999;
+transition:transform 0.2s;
+}
+
+.jump{
+transform:translateY(-120px);
+}
+
+.crouch{
+transform:scaleY(0.6);
+}
+
+.shake{
+animation:shake 0.5s;
+}
+
+@keyframes shake{
+0%{transform:translateX(0);}
+25%{transform:translateX(-10px);}
+50%{transform:translateX(10px);}
+75%{transform:translateX(-10px);}
+100%{transform:translateX(0);}
 }
 
 </style>
@@ -42,41 +75,78 @@ width:70px;
 
 <h1>戦争と日本経済ニュース</h1>
 
-<p>ミライとソウマが世界ニュースを漫画で解説</p>
+<p>ミライとソウマが世界ニュースをわかりやすく解説</p>
+
 
 <div class="card">
-<h2>サイト準備中</h2>
-<p>ニュース生成システムを準備しています。</p>
+
+<h2>最新ニュース</h2>
+
+<p>
+AIが世界ニュースを分析して記事を生成します。
+</p>
+
 </div>
+
 
 <h2>🔥 人気ニュース</h2>
 
-<div class="card">
-<a href="articles/news1.html">1位：世界戦争ニュース分析</a>
-</div>
 
 <div class="card">
-<a href="articles/news2.html">2位：日本経済への影響</a>
+
+<a href="articles/news1.html">
+
+1位：世界戦争ニュース分析
+
+</a>
+
 </div>
 
+
 <div class="card">
-<a href="articles/news3.html">3位：エネルギー価格の動き</a>
+
+<a href="articles/news2.html">
+
+2位：日本経済への影響
+
+</a>
+
 </div>
+
+
+<div class="card">
+
+<a href="articles/news3.html">
+
+3位：エネルギー価格の動き
+
+</a>
+
+</div>
+
+
 
 <img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
+
 
 <script>
 
 const mirai = document.getElementById("mirai")
 
 let x = 0
+let direction = 1
+
 
 function walk(){
 
-x += 3
+x += 3 * direction
 
 if(x > window.innerWidth - 80){
-x = 0
+direction = -1
+}
+
+if(x < 0){
+direction = 1
 }
 
 mirai.style.left = x + "px"
@@ -85,7 +155,49 @@ mirai.style.left = x + "px"
 
 setInterval(walk,100)
 
+
+
+mirai.onclick = function(){
+
+let r = Math.random()
+
+if(r < 0.33){
+
+mirai.classList.add("jump")
+
+setTimeout(()=>{
+mirai.classList.remove("jump")
+},400)
+
+}
+
+else if(r < 0.66){
+
+mirai.classList.add("crouch")
+
+setTimeout(()=>{
+mirai.classList.remove("crouch")
+},400)
+
+}
+
+else{
+
+document.body.classList.add("shake")
+
+setTimeout(()=>{
+document.body.classList.remove("shake")
+},500)
+
+alert("ミライ：ニュース速報だよ！")
+
+}
+
+}
+
 </script>
 
+
 </body>
+
 </html>
