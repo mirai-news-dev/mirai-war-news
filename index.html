@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 
 <head>
 
 <meta charset="UTF-8">
-<title>戦争と日本経済ニュース｜ミライ解説</title>
+
+<title>戦争と日本経済ニュース｜ミライAI解説</title>
+
+<meta name="description" content="戦争や世界ニュースをミライAIがわかりやすく解説するニュースサイト">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
@@ -29,25 +34,46 @@ color:#38bdf8;
 text-decoration:none;
 }
 
-a:hover{
-text-decoration:underline;
+button{
+background:#38bdf8;
+border:none;
+padding:10px;
+border-radius:5px;
+margin-top:10px;
+cursor:pointer;
 }
 
 #mirai{
 position:fixed;
 bottom:20px;
 left:0;
-width:70px;
+width:80px;
 z-index:9999;
-transition:transform 0.2s;
 }
 
-.jump{
-transform:translateY(-120px);
+#chatbox{
+position:fixed;
+right:20px;
+bottom:120px;
+width:260px;
+background:#1e293b;
+padding:10px;
+border-radius:10px;
+display:none;
 }
 
-.crouch{
-transform:scaleY(0.6);
+#game{
+margin-top:40px;
+background:#111;
+height:200px;
+position:relative;
+}
+
+#player{
+position:absolute;
+bottom:0;
+left:20px;
+font-size:40px;
 }
 
 </style>
@@ -58,17 +84,63 @@ transform:scaleY(0.6);
 
 <h1>戦争と日本経済ニュース</h1>
 
-<p>ミライとソウマが世界ニュースをわかりやすく解説</p>
+<p>ミライAIが世界ニュースを解説</p>
 
 <div class="card">
 <h2>最新ニュース</h2>
-<p>AIが世界ニュースを分析して記事を生成します。</p>
+<a href="articles/news1.html">世界ニュース分析</a>
 </div>
 
 <h2>🔥 人気ニュース</h2>
 
 <div class="card">
-<a href="articles/news1.html">世界ニュース分析</a>
+<a href="articles/news1.html">戦争と世界情勢</a>
+</div>
+
+<div class="card">
+<a href="articles/news2.html">日本経済への影響</a>
+</div>
+
+<div class="card">
+<a href="articles/news3.html">エネルギー問題</a>
+</div>
+
+---
+
+<h2>🧠 ニュースクイズ</h2>
+
+<div class="card">
+
+<p id="quiz"></p>
+
+<button onclick="newQuiz()">次のクイズ</button>
+
+</div>
+
+---
+
+<h2>🎮 ミライジャンプゲーム</h2>
+
+<div id="game">
+
+<div id="player">👧</div>
+
+</div>
+
+<button onclick="jump()">ジャンプ</button>
+
+---
+
+<div id="chatbox">
+
+<p><b>ミライAI</b></p>
+
+<input id="userInput" placeholder="ニュース質問">
+
+<button onclick="askAI()">質問</button>
+
+<p id="aiResponse"></p>
+
 </div>
 
 <img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
@@ -78,21 +150,18 @@ transform:scaleY(0.6);
 const mirai = document.getElementById("mirai")
 
 let x = 0
-let direction = 1
 
 function walk(){
 
-x += 3 * direction
+x += 3
 
-if(x > window.innerWidth - 80){
-direction = -1
+if(x > window.innerWidth-80){
+
+x = 0
+
 }
 
-if(x < 0){
-direction = 1
-}
-
-mirai.style.left = x + "px"
+mirai.style.left = x+"px"
 
 }
 
@@ -100,31 +169,66 @@ setInterval(walk,100)
 
 mirai.onclick = function(){
 
-let r = Math.random()
+let box=document.getElementById("chatbox")
 
-if(r < 0.5){
+if(box.style.display=="none"){
 
-mirai.classList.add("jump")
+box.style.display="block"
 
-setTimeout(()=>{
-mirai.classList.remove("jump")
-},400)
+}else{
+
+box.style.display="none"
+
+}
 
 }
 
-else{
+function askAI(){
 
-mirai.classList.add("crouch")
+let q=document.getElementById("userInput").value
 
-setTimeout(()=>{
-mirai.classList.remove("crouch")
-},400)
+document.getElementById("aiResponse").innerText=
+
+"ミライ：そのニュースは世界情勢に関係しています！"
 
 }
+
+const quizList=[
+
+"戦争が起きると上がりやすいものは？",
+
+"世界ニュースは日本経済に影響する？",
+
+"エネルギー価格は何に影響する？"
+
+]
+
+function newQuiz(){
+
+let r=Math.floor(Math.random()*quizList.length)
+
+document.getElementById("quiz").innerText=quizList[r]
+
+}
+
+newQuiz()
+
+const player=document.getElementById("player")
+
+function jump(){
+
+player.style.bottom="100px"
+
+setTimeout(()=>{
+
+player.style.bottom="0px"
+
+},300)
 
 }
 
 </script>
 
 </body>
+
 </html>
