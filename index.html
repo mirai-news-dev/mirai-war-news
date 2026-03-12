@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <title>戦争と日本経済ニュース｜ミライ解説</title>
 
 <style>
@@ -34,10 +33,6 @@ a:hover{
 text-decoration:underline;
 }
 
-h1{
-font-size:32px;
-}
-
 #mirai{
 position:fixed;
 bottom:20px;
@@ -55,18 +50,6 @@ transform:translateY(-120px);
 transform:scaleY(0.6);
 }
 
-.shake{
-animation:shake 0.5s;
-}
-
-@keyframes shake{
-0%{transform:translateX(0);}
-25%{transform:translateX(-10px);}
-50%{transform:translateX(10px);}
-75%{transform:translateX(-10px);}
-100%{transform:translateX(0);}
-}
-
 </style>
 
 </head>
@@ -76,7 +59,6 @@ animation:shake 0.5s;
 <h1>戦争と日本経済ニュース</h1>
 
 <p>ミライとソウマが世界ニュースをわかりやすく解説</p>
-
 
 <div class="card">
 
@@ -88,46 +70,13 @@ AIが世界ニュースを分析して記事を生成します。
 
 </div>
 
-
 <h2>🔥 人気ニュース</h2>
 
-
 <div class="card">
-
-<a href="articles/news1.html">
-
-1位：世界戦争ニュース分析
-
-</a>
-
+<a href="articles/news1.html">世界ニュース分析</a>
 </div>
-
-
-<div class="card">
-
-<a href="articles/news2.html">
-
-2位：日本経済への影響
-
-</a>
-
-</div>
-
-
-<div class="card">
-
-<a href="articles/news3.html">
-
-3位：エネルギー価格の動き
-
-</a>
-
-</div>
-
-
 
 <img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
-
 
 <script>
 
@@ -135,7 +84,6 @@ const mirai = document.getElementById("mirai")
 
 let x = 0
 let direction = 1
-
 
 function walk(){
 
@@ -155,13 +103,11 @@ mirai.style.left = x + "px"
 
 setInterval(walk,100)
 
-
-
 mirai.onclick = function(){
 
 let r = Math.random()
 
-if(r < 0.33){
+if(r < 0.5){
 
 mirai.classList.add("jump")
 
@@ -171,7 +117,7 @@ mirai.classList.remove("jump")
 
 }
 
-else if(r < 0.66){
+else{
 
 mirai.classList.add("crouch")
 
@@ -181,23 +127,9 @@ mirai.classList.remove("crouch")
 
 }
 
-else{
-
-document.body.classList.add("shake")
-
-setTimeout(()=>{
-document.body.classList.remove("shake")
-},500)
-
-alert("ミライ：ニュース速報だよ！")
-
-}
-
 }
 
 </script>
 
-
 </body>
-
 </html>
