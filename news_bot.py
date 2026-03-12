@@ -4,18 +4,19 @@ from openai import OpenAI
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-rss_url = "https://feeds.bbci.co.uk/news/world/rss.xml"
-feed = feedparser.parse(rss_url)
+rss = "https://feeds.bbci.co.uk/news/world/rss.xml"
 
-entry = feed.entries[0]
+feed = feedparser.parse(rss)
 
-title = entry.title
-summary = entry.summary
+news = feed.entries[0]
+
+title = news.title
+summary = news.summary
 
 prompt = f"""
-次のニュースを日本語で分かりやすく説明してください。
+次のニュースを日本語でわかりやすく解説してください。
 
-ニュースタイトル
+タイトル
 {title}
 
 内容
@@ -23,14 +24,15 @@ prompt = f"""
 """
 
 response = client.responses.create(
-    model="gpt-4.1-mini",
-    input=prompt
+model="gpt-4.1-mini",
+input=prompt
 )
 
-article = response.output_text
+text = response.output_text
 
 html = f"""
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>{title}</title>
@@ -40,15 +42,16 @@ html = f"""
 
 <h1>{title}</h1>
 
-<p>{article}</p>
+<p>{text}</p>
 
-<a href="../index.html">戻る</a>
+<a href="../index.html">トップへ戻る</a>
 
 </body>
+
 </html>
 """
 
-os.makedirs("articles", exist_ok=True)
+os.makedirs("articles",exist_ok=True)
 
 with open("articles/news1.html","w",encoding="utf-8") as f:
     f.write(html)
