@@ -1,72 +1,40 @@
-<!DOCTYPE html>
-<html lang="ja">
+
+
+<html>
 
 <head>
 
 <meta charset="UTF-8">
-<title>戦争と日本経済ニュース｜ミライAI解説</title>
 
-<meta name="description" content="戦争や世界ニュースをミライAIがわかりやすく解説するニュースサイト">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>戦争と日本経済ニュース｜ミライ解説</title>
 
 <style>
 
 body{
-font-family:Arial;
+
 background:#0f172a;
 color:white;
+font-family:Arial;
 max-width:900px;
 margin:auto;
 padding:20px;
+
 }
 
 .card{
+
 background:#1e293b;
 padding:20px;
 margin:20px 0;
 border-radius:10px;
+
 }
 
 a{
+
 color:#38bdf8;
 text-decoration:none;
-}
 
-#mirai{
-position:fixed;
-bottom:20px;
-left:0;
-width:120px;
-z-index:9999;
-transition:transform 0.2s;
-}
-
-.jump{
-transform:translateY(-120px);
-}
-
-#chatbox{
-position:fixed;
-right:20px;
-bottom:140px;
-width:260px;
-background:#1e293b;
-padding:10px;
-border-radius:10px;
-display:none;
-}
-
-input{
-width:100%;
-padding:5px;
-margin-top:5px;
-}
-
-button{
-margin-top:5px;
-padding:5px;
-cursor:pointer;
 }
 
 </style>
@@ -77,502 +45,93 @@ cursor:pointer;
 
 <h1>戦争と日本経済ニュース</h1>
 
-<p>ミライAIが世界ニュースを解説</p>
+<p>ミライとソウマが世界ニュースを解説</p>
 
-<div class="card">
 <h2>最新ニュース</h2>
-<a href="articles/news1.html">世界ニュース分析</a>
-</div>
 
-<h2>🔥 人気ニュース</h2>
+
 
 <div class="card">
-<a href="articles/news1.html">戦争と世界情勢</a>
+<a href="articles/news0.html">
+<h3>'What if we're left with ruins?': Doubts creep in for Iranians who supported war</h3>
+</a>
 </div>
+
+
 
 <div class="card">
-<a href="articles/news2.html">日本経済への影響</a>
+<a href="articles/news1.html">
+<h3>China approves 'ethnic unity' law requiring minorities to learn Mandarin</h3>
+</a>
 </div>
+
+
 
 <div class="card">
-<a href="articles/news3.html">エネルギー問題</a>
+<a href="articles/news2.html">
+<h3>Epstein used modelling agent to recruit girls, Brazilian women tell BBC</h3>
+</a>
 </div>
 
----
 
-<h2>🧠 ニュースクイズ</h2>
 
 <div class="card">
-
-<p id="quiz"></p>
-
-<button onclick="newQuiz()">次のクイズ</button>
-
+<a href="articles/news3.html">
+<h3>Nineteen jailed over deadly Moscow concert attack</h3>
+</a>
 </div>
 
----
 
-<div id="chatbox">
 
-<p><b>ミライAI</b></p>
-
-<input id="userInput" placeholder="ニュース質問">
-
-<button onclick="askAI()">質問</button>
-
-<p id="aiResponse"></p>
-
+<div class="card">
+<a href="articles/news4.html">
+<h3>Noma head chef resigns from restaurant amid abuse allegations</h3>
+</a>
 </div>
 
-<!-- ミライ2Dキャラ -->
 
-<img id="mirai" src="images/mirai_sprite.png">
 
-<script>
+<div class="card">
+<a href="articles/news5.html">
+<h3>Hozier, Jessie Buckley and Bruce Springsteen record Shane MacGowan tribute album</h3>
+</a>
+</div>
 
-const mirai=document.getElementById("mirai")
 
-let x=0
-let direction=1
 
-function walk(){
+<div class="card">
+<a href="articles/news6.html">
+<h3>Cartoonist freed after 15 years in prison without charge in Eritrea</h3>
+</a>
+</div>
 
-x+=3*direction
 
-if(x>window.innerWidth-140){
-direction=-1
-}
 
-if(x<0){
-direction=1
-}
+<div class="card">
+<a href="articles/news7.html">
+<h3>Chinese national arrested over attempt to smuggle 2,000 queen ants from Kenya</h3>
+</a>
+</div>
 
-mirai.style.left=x+"px"
 
-}
 
-setInterval(walk,100)
+<div class="card">
+<a href="articles/news8.html">
+<h3>Nasa spacecraft weighing 1,300lb re-enters Earth's atmosphere</h3>
+</a>
+</div>
 
-mirai.onclick=function(){
 
-let box=document.getElementById("chatbox")
 
-if(box.style.display=="none"){
-box.style.display="block"
-}else{
-box.style.display="none"
-}
+<div class="card">
+<a href="articles/news9.html">
+<h3>Death toll from Ethiopia floods and landslides rises to more than 60</h3>
+</a>
+</div>
 
-mirai.classList.add("jump")
 
-setTimeout(()=>{
-mirai.classList.remove("jump")
-},300)
 
-}
-
-function askAI(){
-
-let q=document.getElementById("userInput").value
-
-document.getElementById("aiResponse").innerText=
-"ミライ：そのニュースは世界情勢に影響する重要な話題だよ！"
-
-}
-
-const quizList=[
-
-"戦争が起きると上がりやすいものは？",
-
-"世界ニュースは日本経済に影響する？",
-
-"エネルギー価格は何に影響する？"
-
-]
-
-function newQuiz(){
-
-let r=Math.floor(Math.random()*quizList.length)
-
-document.getElementById("quiz").innerText=quizList[r]
-
-}
-
-newQuiz()
-
-</script>
-<img id="mirai" src="images/mirai_idle.png">
-
-<img id="crack" src="https://i.imgur.com/6QKQw7G.png"
-style="display:none;position:fixed;top:0;left:0;width:100%;z-index:9998">
-
-<audio id="glassSound"
-src="https://assets.mixkit.co/sfx/preview/mixkit-breaking-glass-284.mp3"></audio>
-
-<style>
-
-#mirai{
-position:fixed;
-bottom:20px;
-left:0;
-width:110px;
-z-index:9999;
-transition:0.2s;
-}
-
-.jump{
-transform:translateY(-140px);
-}
-
-.punch{
-transform:translateX(20px);
-}
-
-</style>
-
-<script>
-
-const mirai=document.getElementById("mirai")
-const crack=document.getElementById("crack")
-const glass=document.getElementById("glassSound")
-
-let x=0
-let direction=1
-let clickCount=0
-
-const walkFrames=[
-"images/mirai_walk1.png",
-"images/mirai_walk2.png"
-]
-
-let frame=0
-
-function walk(){
-
-x+=3*direction
-
-if(x>window.innerWidth-120){
-direction=-1
-}
-
-if(x<0){
-direction=1
-}
-
-mirai.style.left=x+"px"
-
-frame=(frame+1)%walkFrames.length
-mirai.src=walkFrames[frame]
-
-}
-
-setInterval(walk,200)
-
-mirai.onclick=function(){
-
-clickCount++
-
-/* 1〜3回 ジャンプ */
-
-if(clickCount<=3){
-
-mirai.src="images/mirai_jump.png"
-mirai.classList.add("jump")
-
-setTimeout(()=>{
-mirai.classList.remove("jump")
-mirai.src="images/mirai_idle.png"
-},400)
-
-}
-
-/* 4〜6回 注意 */
-
-else if(clickCount<=6){
-
-alert("ミライ：ちょっと！クリックしすぎ！")
-
-}
-
-/* 7回以上 パンチ */
-
-else{
-
-mirai.src="images/mirai_angry.png"
-
-mirai.classList.add("punch")
-
-setTimeout(()=>{
-
-crack.style.display="block"
-
-glass.play()
-
-},200)
-
-setTimeout(()=>{
-
-crack.style.display="none"
-
-mirai.classList.remove("punch")
-
-clickCount=0
-
-mirai.src="images/mirai_idle.png"
-
-},1500)
-
-}
-
-}
-
-</script>
-  <!-- ミライキャラ -->
-<img id="mirai" src="images/mirai_idle.png">
-
-<!-- 画面割れ -->
-<img id="crack" src="https://i.imgur.com/6QKQw7G.png"
-style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:9998;pointer-events:none;">
-
-<!-- 割れる音 -->
-<audio id="glassSound"
-src="https://assets.mixkit.co/sfx/preview/mixkit-breaking-glass-284.mp3"></audio>
-
-<style>
-
-#mirai{
-position:fixed;
-bottom:20px;
-left:0;
-width:110px;
-z-index:9999;
-transition:0.2s;
-}
-
-.jump{
-transform:translateY(-140px);
-}
-
-.crouch{
-transform:scaleY(0.6);
-}
-
-.punch{
-transform:translateX(40px);
-}
-
-</style>
-
-<script>
-
-const mirai=document.getElementById("mirai")
-const crack=document.getElementById("crack")
-const glass=document.getElementById("glassSound")
-
-let x=0
-let direction=1
-let clickCount=0
-let frame=0
-
-const walkFrames=[
-"images/mirai_walk1.png",
-"images/mirai_walk2.png"
-]
-
-function walk(){
-
-x+=2*direction
-
-if(x>window.innerWidth-120){
-direction=-1
-}
-
-if(x<0){
-direction=1
-}
-
-mirai.style.left=x+"px"
-
-frame=(frame+1)%walkFrames.length
-mirai.src=walkFrames[frame]
-
-}
-
-setInterval(walk,200)
-
-mirai.onclick=function(){
-
-clickCount++
-
-/* ジャンプ */
-
-if(clickCount<=3){
-
-mirai.src="images/mirai_jump.png"
-mirai.classList.add("jump")
-
-setTimeout(()=>{
-
-mirai.classList.remove("jump")
-mirai.src="images/mirai_idle.png"
-
-},400)
-
-}
-
-/* しゃがむ */
-
-else if(clickCount<=5){
-
-mirai.src="images/mirai_crouch.png"
-mirai.classList.add("crouch")
-
-setTimeout(()=>{
-
-mirai.classList.remove("crouch")
-mirai.src="images/mirai_idle.png"
-
-},400)
-
-}
-
-/* 注意 */
-
-else if(clickCount<=7){
-
-alert("ミライ：ちょっと！しつこいよ！")
-
-}
-
-/* パンチして画面割れ */
-
-else{
-
-mirai.src="images/mirai_angry.png"
-
-mirai.classList.add("punch")
-
-setTimeout(()=>{
-
-crack.style.display="block"
-glass.play()
-
-},200)
-
-setTimeout(()=>{
-
-crack.style.display="none"
-mirai.classList.remove("punch")
-
-mirai.src="images/mirai_idle.png"
-
-clickCount=0
-
-},1500)
-
-}
-
-}
-
-</script>
 </body>
+
 </html>
-<script>
 
-const mirai = document.getElementById("mirai")
-
-let x = 0
-let direction = 1
-let clickCount = 0
-
-function walk(){
-
-x += 2 * direction
-
-if(x > window.innerWidth - 120){
-direction = -1
-}
-
-if(x < 0){
-direction = 1
-}
-
-mirai.style.left = x + "px"
-
-}
-
-setInterval(walk,120)
-
-mirai.onclick=function(){
-
-clickCount++
-
-/* ジャンプ */
-
-if(clickCount<=3){
-
-mirai.style.transform="translateY(-120px)"
-
-setTimeout(()=>{
-mirai.style.transform="translateY(0px)"
-},400)
-
-}
-
-/* しゃがむ */
-
-else if(clickCount<=5){
-
-mirai.style.transform="scaleY(0.6)"
-
-setTimeout(()=>{
-mirai.style.transform="scaleY(1)"
-},400)
-
-}
-
-/* 注意 */
-
-else if(clickCount<=7){
-
-alert("ミライ：ちょっと！クリックしすぎ！")
-
-}
-
-/* パンチ */
-
-else{
-
-document.body.style.background="white"
-
-let crack=document.createElement("div")
-
-crack.style.position="fixed"
-crack.style.top="0"
-crack.style.left="0"
-crack.style.width="100%"
-crack.style.height="100%"
-crack.style.background="url(https://i.imgur.com/6QKQw7G.png)"
-crack.style.backgroundSize="cover"
-crack.style.pointerEvents="none"
-
-document.body.appendChild(crack)
-
-let audio=new Audio("https://assets.mixkit.co/sfx/preview/mixkit-breaking-glass-284.mp3")
-
-audio.play()
-
-setTimeout(()=>{
-
-document.body.removeChild(crack)
-document.body.style.background="#0f172a"
-
-clickCount=0
-
-},1500)
-
-}
-
-}
-
-</script>
