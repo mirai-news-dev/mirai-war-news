@@ -126,7 +126,7 @@ cursor:pointer;
 
 <!-- ミライ2Dキャラ -->
 
-<img id="mirai" src="https://i.imgur.com/Z6XbK8C.png">
+<img id="mirai" src="images/mirai_sprite.png">
 
 <script>
 
@@ -477,3 +477,102 @@ clickCount=0
 </script>
 </body>
 </html>
+<script>
+
+const mirai = document.getElementById("mirai")
+
+let x = 0
+let direction = 1
+let clickCount = 0
+
+function walk(){
+
+x += 2 * direction
+
+if(x > window.innerWidth - 120){
+direction = -1
+}
+
+if(x < 0){
+direction = 1
+}
+
+mirai.style.left = x + "px"
+
+}
+
+setInterval(walk,120)
+
+mirai.onclick=function(){
+
+clickCount++
+
+/* ジャンプ */
+
+if(clickCount<=3){
+
+mirai.style.transform="translateY(-120px)"
+
+setTimeout(()=>{
+mirai.style.transform="translateY(0px)"
+},400)
+
+}
+
+/* しゃがむ */
+
+else if(clickCount<=5){
+
+mirai.style.transform="scaleY(0.6)"
+
+setTimeout(()=>{
+mirai.style.transform="scaleY(1)"
+},400)
+
+}
+
+/* 注意 */
+
+else if(clickCount<=7){
+
+alert("ミライ：ちょっと！クリックしすぎ！")
+
+}
+
+/* パンチ */
+
+else{
+
+document.body.style.background="white"
+
+let crack=document.createElement("div")
+
+crack.style.position="fixed"
+crack.style.top="0"
+crack.style.left="0"
+crack.style.width="100%"
+crack.style.height="100%"
+crack.style.background="url(https://i.imgur.com/6QKQw7G.png)"
+crack.style.backgroundSize="cover"
+crack.style.pointerEvents="none"
+
+document.body.appendChild(crack)
+
+let audio=new Audio("https://assets.mixkit.co/sfx/preview/mixkit-breaking-glass-284.mp3")
+
+audio.play()
+
+setTimeout(()=>{
+
+document.body.removeChild(crack)
+document.body.style.background="#0f172a"
+
+clickCount=0
+
+},1500)
+
+}
+
+}
+
+</script>
