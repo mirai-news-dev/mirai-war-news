@@ -201,6 +201,279 @@ document.getElementById("quiz").innerText=quizList[r]
 newQuiz()
 
 </script>
+<img id="mirai" src="images/mirai_idle.png">
 
+<img id="crack" src="https://i.imgur.com/6QKQw7G.png"
+style="display:none;position:fixed;top:0;left:0;width:100%;z-index:9998">
+
+<audio id="glassSound"
+src="https://assets.mixkit.co/sfx/preview/mixkit-breaking-glass-284.mp3"></audio>
+
+<style>
+
+#mirai{
+position:fixed;
+bottom:20px;
+left:0;
+width:110px;
+z-index:9999;
+transition:0.2s;
+}
+
+.jump{
+transform:translateY(-140px);
+}
+
+.punch{
+transform:translateX(20px);
+}
+
+</style>
+
+<script>
+
+const mirai=document.getElementById("mirai")
+const crack=document.getElementById("crack")
+const glass=document.getElementById("glassSound")
+
+let x=0
+let direction=1
+let clickCount=0
+
+const walkFrames=[
+"images/mirai_walk1.png",
+"images/mirai_walk2.png"
+]
+
+let frame=0
+
+function walk(){
+
+x+=3*direction
+
+if(x>window.innerWidth-120){
+direction=-1
+}
+
+if(x<0){
+direction=1
+}
+
+mirai.style.left=x+"px"
+
+frame=(frame+1)%walkFrames.length
+mirai.src=walkFrames[frame]
+
+}
+
+setInterval(walk,200)
+
+mirai.onclick=function(){
+
+clickCount++
+
+/* 1〜3回 ジャンプ */
+
+if(clickCount<=3){
+
+mirai.src="images/mirai_jump.png"
+mirai.classList.add("jump")
+
+setTimeout(()=>{
+mirai.classList.remove("jump")
+mirai.src="images/mirai_idle.png"
+},400)
+
+}
+
+/* 4〜6回 注意 */
+
+else if(clickCount<=6){
+
+alert("ミライ：ちょっと！クリックしすぎ！")
+
+}
+
+/* 7回以上 パンチ */
+
+else{
+
+mirai.src="images/mirai_angry.png"
+
+mirai.classList.add("punch")
+
+setTimeout(()=>{
+
+crack.style.display="block"
+
+glass.play()
+
+},200)
+
+setTimeout(()=>{
+
+crack.style.display="none"
+
+mirai.classList.remove("punch")
+
+clickCount=0
+
+mirai.src="images/mirai_idle.png"
+
+},1500)
+
+}
+
+}
+
+</script>
+  <!-- ミライキャラ -->
+<img id="mirai" src="images/mirai_idle.png">
+
+<!-- 画面割れ -->
+<img id="crack" src="https://i.imgur.com/6QKQw7G.png"
+style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:9998;pointer-events:none;">
+
+<!-- 割れる音 -->
+<audio id="glassSound"
+src="https://assets.mixkit.co/sfx/preview/mixkit-breaking-glass-284.mp3"></audio>
+
+<style>
+
+#mirai{
+position:fixed;
+bottom:20px;
+left:0;
+width:110px;
+z-index:9999;
+transition:0.2s;
+}
+
+.jump{
+transform:translateY(-140px);
+}
+
+.crouch{
+transform:scaleY(0.6);
+}
+
+.punch{
+transform:translateX(40px);
+}
+
+</style>
+
+<script>
+
+const mirai=document.getElementById("mirai")
+const crack=document.getElementById("crack")
+const glass=document.getElementById("glassSound")
+
+let x=0
+let direction=1
+let clickCount=0
+let frame=0
+
+const walkFrames=[
+"images/mirai_walk1.png",
+"images/mirai_walk2.png"
+]
+
+function walk(){
+
+x+=2*direction
+
+if(x>window.innerWidth-120){
+direction=-1
+}
+
+if(x<0){
+direction=1
+}
+
+mirai.style.left=x+"px"
+
+frame=(frame+1)%walkFrames.length
+mirai.src=walkFrames[frame]
+
+}
+
+setInterval(walk,200)
+
+mirai.onclick=function(){
+
+clickCount++
+
+/* ジャンプ */
+
+if(clickCount<=3){
+
+mirai.src="images/mirai_jump.png"
+mirai.classList.add("jump")
+
+setTimeout(()=>{
+
+mirai.classList.remove("jump")
+mirai.src="images/mirai_idle.png"
+
+},400)
+
+}
+
+/* しゃがむ */
+
+else if(clickCount<=5){
+
+mirai.src="images/mirai_crouch.png"
+mirai.classList.add("crouch")
+
+setTimeout(()=>{
+
+mirai.classList.remove("crouch")
+mirai.src="images/mirai_idle.png"
+
+},400)
+
+}
+
+/* 注意 */
+
+else if(clickCount<=7){
+
+alert("ミライ：ちょっと！しつこいよ！")
+
+}
+
+/* パンチして画面割れ */
+
+else{
+
+mirai.src="images/mirai_angry.png"
+
+mirai.classList.add("punch")
+
+setTimeout(()=>{
+
+crack.style.display="block"
+glass.play()
+
+},200)
+
+setTimeout(()=>{
+
+crack.style.display="none"
+mirai.classList.remove("punch")
+
+mirai.src="images/mirai_idle.png"
+
+clickCount=0
+
+},1500)
+
+}
+
+}
+
+</script>
 </body>
 </html>
