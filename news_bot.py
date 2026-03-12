@@ -14,7 +14,7 @@ title = news.title
 summary = news.summary
 
 prompt = f"""
-次のニュースを日本語でわかりやすく解説してください。
+次のニュースを日本語でわかりやすく説明してください。
 
 タイトル
 {title}
