@@ -93,6 +93,45 @@ mirai.style.bottom="20px"
 mirai.style.width="70px"
 
 </script>
+  <!-- ミライキャラ -->
+
+<img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
+
+<script>
+
+const mirai = document.getElementById("mirai")
+
+let x = 0
+
+function walk(){
+
+x += 4
+
+if(x > window.innerWidth - 80){
+x = 0
+}
+
+mirai.style.left = x + "px"
+
+}
+
+setInterval(walk,150)
+
+mirai.style.position="fixed"
+mirai.style.bottom="20px"
+mirai.style.width="70px"
+
+mirai.onclick = function(){
+
+alert(
+"ミライだよ！✨\n\n"+
+"新人ニュースキャスター\n\n"+
+"世界ニュースをわかりやすく説明するね！"
+)
+
+}
+
+</script>
 </body>
 </html>
 <img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
