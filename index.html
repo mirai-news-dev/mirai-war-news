@@ -37,7 +37,33 @@ color:#38bdf8;
 <h2>サイト準備中</h2>
 <p>ニュース生成システムを準備しています。</p>
 </div>
+<img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
 
+<script>
+
+const mirai = document.getElementById("mirai")
+
+let x = 0
+
+function walk(){
+
+x += 4
+
+if(x > window.innerWidth - 80){
+x = 0
+}
+
+mirai.style.left = x + "px"
+
+}
+
+setInterval(walk,150)
+
+mirai.style.position="fixed"
+mirai.style.bottom="20px"
+mirai.style.width="70px"
+
+</script>
 </body>
 </html>
 <img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
