@@ -1,79 +1,40 @@
-<!DOCTYPE html>
-<html lang="ja">
+
+
+<html>
 
 <head>
 
 <meta charset="UTF-8">
 
-<title>戦争と日本経済ニュース｜ミライAI解説</title>
-
-<meta name="description" content="戦争や世界ニュースをミライAIがわかりやすく解説するニュースサイト">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>戦争と日本経済ニュース｜ミライ解説</title>
 
 <style>
 
 body{
-font-family:Arial;
+
 background:#0f172a;
 color:white;
+font-family:Arial;
 max-width:900px;
 margin:auto;
 padding:20px;
+
 }
 
 .card{
+
 background:#1e293b;
 padding:20px;
 margin:20px 0;
 border-radius:10px;
+
 }
 
 a{
+
 color:#38bdf8;
 text-decoration:none;
-}
 
-button{
-background:#38bdf8;
-border:none;
-padding:10px;
-border-radius:5px;
-margin-top:10px;
-cursor:pointer;
-}
-
-#mirai{
-position:fixed;
-bottom:20px;
-left:0;
-width:80px;
-z-index:9999;
-}
-
-#chatbox{
-position:fixed;
-right:20px;
-bottom:120px;
-width:260px;
-background:#1e293b;
-padding:10px;
-border-radius:10px;
-display:none;
-}
-
-#game{
-margin-top:40px;
-background:#111;
-height:200px;
-position:relative;
-}
-
-#player{
-position:absolute;
-bottom:0;
-left:20px;
-font-size:40px;
 }
 
 </style>
@@ -84,151 +45,93 @@ font-size:40px;
 
 <h1>戦争と日本経済ニュース</h1>
 
-<p>ミライAIが世界ニュースを解説</p>
+<p>ミライとソウマが世界ニュースを解説</p>
 
-<div class="card">
 <h2>最新ニュース</h2>
-<a href="articles/news1.html">世界ニュース分析</a>
-</div>
 
-<h2>🔥 人気ニュース</h2>
+
 
 <div class="card">
-<a href="articles/news1.html">戦争と世界情勢</a>
+<a href="articles/news0.html">
+<h3>'Fingers on the trigger': Deadly warnings for Iranians being urged to take action</h3>
+</a>
 </div>
+
+
 
 <div class="card">
-<a href="articles/news2.html">日本経済への影響</a>
+<a href="articles/news1.html">
+<h3>China approves 'ethnic unity' law requiring minorities to learn Mandarin</h3>
+</a>
 </div>
+
+
 
 <div class="card">
-<a href="articles/news3.html">エネルギー問題</a>
+<a href="articles/news2.html">
+<h3>Epstein used modelling agent to recruit girls, Brazilian women tell BBC</h3>
+</a>
 </div>
 
----
 
-<h2>🧠 ニュースクイズ</h2>
 
 <div class="card">
-
-<p id="quiz"></p>
-
-<button onclick="newQuiz()">次のクイズ</button>
-
+<a href="articles/news3.html">
+<h3>Nineteen jailed over deadly Moscow concert attack</h3>
+</a>
 </div>
 
----
 
-<h2>🎮 ミライジャンプゲーム</h2>
 
-<div id="game">
-
-<div id="player">👧</div>
-
+<div class="card">
+<a href="articles/news4.html">
+<h3>Noma head chef resigns from restaurant amid abuse allegations</h3>
+</a>
 </div>
 
-<button onclick="jump()">ジャンプ</button>
 
----
 
-<div id="chatbox">
-
-<p><b>ミライAI</b></p>
-
-<input id="userInput" placeholder="ニュース質問">
-
-<button onclick="askAI()">質問</button>
-
-<p id="aiResponse"></p>
-
+<div class="card">
+<a href="articles/news5.html">
+<h3>Hozier, Jessie Buckley and Bruce Springsteen record Shane MacGowan tribute album</h3>
+</a>
 </div>
 
-<img id="mirai" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
 
-<script>
 
-const mirai = document.getElementById("mirai")
+<div class="card">
+<a href="articles/news6.html">
+<h3>Chinese national arrested over attempt to smuggle 2,000 queen ants from Kenya</h3>
+</a>
+</div>
 
-let x = 0
 
-function walk(){
 
-x += 3
+<div class="card">
+<a href="articles/news7.html">
+<h3>Nasa spacecraft weighing 1,300lb re-enters Earth's atmosphere</h3>
+</a>
+</div>
 
-if(x > window.innerWidth-80){
 
-x = 0
 
-}
+<div class="card">
+<a href="articles/news8.html">
+<h3>Death toll from Ethiopia floods and landslides rises to more than 60</h3>
+</a>
+</div>
 
-mirai.style.left = x+"px"
 
-}
 
-setInterval(walk,100)
+<div class="card">
+<a href="articles/news9.html">
+<h3>Jo Malone sued for using her own name in collaboration with Zara</h3>
+</a>
+</div>
 
-mirai.onclick = function(){
 
-let box=document.getElementById("chatbox")
-
-if(box.style.display=="none"){
-
-box.style.display="block"
-
-}else{
-
-box.style.display="none"
-
-}
-
-}
-
-function askAI(){
-
-let q=document.getElementById("userInput").value
-
-document.getElementById("aiResponse").innerText=
-
-"ミライ：そのニュースは世界情勢に関係しています！"
-
-}
-
-const quizList=[
-
-"戦争が起きると上がりやすいものは？",
-
-"世界ニュースは日本経済に影響する？",
-
-"エネルギー価格は何に影響する？"
-
-]
-
-function newQuiz(){
-
-let r=Math.floor(Math.random()*quizList.length)
-
-document.getElementById("quiz").innerText=quizList[r]
-
-}
-
-newQuiz()
-
-const player=document.getElementById("player")
-
-function jump(){
-
-player.style.bottom="100px"
-
-setTimeout(()=>{
-
-player.style.bottom="0px"
-
-},300)
-
-}
-
-</script>
 
 </body>
 
 </html>
+
