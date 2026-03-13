@@ -70,7 +70,7 @@ body {
 .hero-yui {
   position: absolute;
   z-index: 3;
-  left: clamp(0px, 2vw, 20px);
+  left: clamp(0px, 2vw, 10px);
   bottom: 0;
   width: clamp(170px, 24vw, 320px);
   height: auto;
@@ -327,3 +327,4 @@ body {
     font-size: 30px;
   }
 }
+
