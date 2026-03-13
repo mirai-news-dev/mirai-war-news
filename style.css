@@ -85,13 +85,9 @@ body {
 /* ========================================
    吹き出し
 ======================================== */
-.hero-balloons {
-  position: relative;
-  z-index: 6;
-}
-
 .balloon {
   position: absolute;
+  z-index: 6;
   background: #fffdf4;
   color: #1f2c44;
   border-radius: 999px;
@@ -104,7 +100,7 @@ body {
 }
 
 .balloon-left {
-  top: 280px;
+  top: 240px;
   left: 40px;
 }
 
@@ -119,7 +115,7 @@ body {
 }
 
 .balloon-top {
-  top: 320px;
+  top: 280px;
   left: 50%;
   transform: translateX(-10%);
   background: #f7fbff;
@@ -136,9 +132,9 @@ body {
 }
 
 .balloon-bottom {
-  top: 420px;
+  top: 370px;
   left: 50%;
-  transform: translateX(-34%);
+  transform: translateX(-35%);
 }
 
 .balloon-bottom::after {
@@ -158,7 +154,7 @@ body {
   position: absolute;
   z-index: 6;
   left: 50%;
-  top: 580px;
+  top: 520px;
   transform: translateX(-50%);
 
   display: inline-block;
@@ -175,11 +171,14 @@ body {
     0 8px 30px rgba(0, 0, 0, 0.28);
 }
 
+/* ========================================
+   下矢印
+======================================== */
 .hero-arrow {
   position: absolute;
   z-index: 6;
   left: 50%;
-  top: 690px;
+  top: 620px;
   transform: translateX(-50%);
   font-size: 42px;
   color: #d7eeff;
@@ -237,86 +236,30 @@ body {
   }
 
   .balloon-left {
-    top: 220px;
+    top: 180px;
     left: 12px;
   }
 
   .balloon-top {
-    top: 280px;
+    top: 250px;
     left: 50%;
     transform: translateX(-20%);
   }
 
   .balloon-bottom {
-    top: 345px;
+    top: 320px;
     left: 50%;
     transform: translateX(-45%);
   }
 
   .hero-button {
-    top: 520px;
+    top: 470px;
     font-size: 18px;
     padding: 16px 28px;
   }
 
   .hero-arrow {
-    top: 600px;
+    top: 550px;
     font-size: 34px;
   }
-}
-/* 吹き出し */
-
-.balloon{
-position:absolute;
-background:#fffdf4;
-color:#1f2c44;
-border-radius:999px;
-padding:16px 26px;
-font-size:22px;
-font-weight:700;
-box-shadow:0 10px 20px rgba(0,0,0,0.2);
-}
-
-.balloon-left{
-top:230px;
-left:40px;
-}
-
-.balloon-top{
-top:280px;
-left:50%;
-transform:translateX(-10%);
-}
-
-.balloon-bottom{
-top:350px;
-left:50%;
-transform:translateX(-35%);
-}
-
-/* ボタン */
-
-.hero-button{
-position:absolute;
-left:50%;
-top:500px;
-transform:translateX(-50%);
-padding:18px 40px;
-border-radius:40px;
-background:linear-gradient(45deg,#2cc3ff,#1b6fff);
-color:white;
-text-decoration:none;
-font-size:24px;
-box-shadow:0 0 20px rgba(52,179,255,0.7);
-}
-
-/* 下矢印 */
-
-.hero-arrow{
-position:absolute;
-left:50%;
-top:580px;
-transform:translateX(-50%);
-font-size:40px;
-color:white;
 }
