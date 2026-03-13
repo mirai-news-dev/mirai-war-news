@@ -1,0 +1,99 @@
+/* ===================
+全体設定
+=================== */
+
+body{
+
+margin:0;
+
+font-family:sans-serif;
+
+background:#08101f;
+
+color:white;
+
+}
+
+/* ===================
+ヒーロー背景
+=================== */
+
+.hero{
+
+background-image:url("images/hero-bg.png");
+
+background-size:cover;
+
+background-position:center;
+
+height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+}
+
+/* ===================
+中央コンテンツ
+=================== */
+
+.hero-content{
+
+max-width:900px;
+
+}
+
+/* ===================
+タイトル
+=================== */
+
+.hero h1{
+
+font-size:70px;
+
+margin:0;
+
+}
+
+/* ===================
+サブタイトル
+=================== */
+
+.hero p{
+
+font-size:26px;
+
+margin-top:20px;
+
+}
+
+/* ===================
+ボタン
+=================== */
+
+.main-button{
+
+display:inline-block;
+
+margin-top:40px;
+
+padding:18px 40px;
+
+border-radius:40px;
+
+background:linear-gradient(45deg,#2cc3ff,#1b6fff);
+
+color:white;
+
+text-decoration:none;
+
+font-size:22px;
+
+box-shadow:0 0 20px rgba(52,179,255,0.7);
+
+}
