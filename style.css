@@ -104,8 +104,8 @@ body {
 
 /* 左の吹き出し */
 .balloon-left {
-  top: clamp(170px, 26vh, 240px);
-  left: clamp(10px, 3vw, 40px);
+  top: clamp(170px, 26vh, 300px);
+  left: clamp(10px, 3vw, 120px);
 }
 
 .balloon-left::after {
@@ -121,7 +121,7 @@ body {
 /* 上の吹き出し */
 .balloon-top {
   top: clamp(230px, 30vh, 280px);
-  left: 56%;
+  left: 63%;
   transform: translateX(-10%);
   background: #f7fbff;
 }
@@ -139,7 +139,7 @@ body {
 /* 下の吹き出し */
 .balloon-bottom {
   top: clamp(310px, 40vh, 370px);
-  left: 52%;
+  left: 50%;
   transform: translateX(-35%);
 }
 
@@ -327,6 +327,7 @@ body {
     font-size: 30px;
   }
 }
+
 
 
 
