@@ -42,20 +42,23 @@ body {
   position: relative;
   z-index: 5;
   text-align: center;
-  padding-top: 50px;
+  padding-top: clamp(28px, 4vw, 50px);
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .hero-title {
   margin: 0;
-  font-size: 86px;
+  font-size: clamp(38px, 6vw, 86px);
   font-weight: 800;
   letter-spacing: 2px;
+  line-height: 1.1;
   text-shadow: 0 6px 22px rgba(0, 0, 0, 0.45);
 }
 
 .hero-subtitle {
-  margin-top: 20px;
-  font-size: 30px;
+  margin-top: 16px;
+  font-size: clamp(18px, 2.3vw, 30px);
   font-weight: 700;
   color: #f3f7ff;
   text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
@@ -67,18 +70,18 @@ body {
 .hero-yui {
   position: absolute;
   z-index: 3;
-  left: 20px;
+  left: clamp(0px, 2vw, 20px);
   bottom: 0;
-  width: 320px;
+  width: clamp(170px, 24vw, 320px);
   height: auto;
 }
 
 .hero-taka {
   position: absolute;
   z-index: 3;
-  right: 20px;
+  right: clamp(0px, 2vw, 20px);
   bottom: 0;
-  width: 360px;
+  width: clamp(220px, 28vw, 360px);
   height: auto;
 }
 
@@ -91,17 +94,18 @@ body {
   background: #fffdf4;
   color: #1f2c44;
   border-radius: 999px;
-  padding: 18px 28px;
-  font-size: 24px;
+  padding: clamp(10px, 1.2vw, 18px) clamp(16px, 1.8vw, 28px);
+  font-size: clamp(14px, 1.6vw, 24px);
   font-weight: 700;
   line-height: 1.4;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
   white-space: nowrap;
 }
 
+/* 左の吹き出し */
 .balloon-left {
-  top: 240px;
-  left: 40px;
+  top: clamp(170px, 26vh, 240px);
+  left: clamp(10px, 3vw, 40px);
 }
 
 .balloon-left::after {
@@ -114,9 +118,10 @@ body {
   border-color: #fffdf4 transparent transparent transparent;
 }
 
+/* 上の吹き出し */
 .balloon-top {
-  top: 280px;
-  left: 50%;
+  top: clamp(230px, 30vh, 280px);
+  left: 56%;
   transform: translateX(-10%);
   background: #f7fbff;
 }
@@ -131,9 +136,10 @@ body {
   border-color: #f7fbff transparent transparent transparent;
 }
 
+/* 下の吹き出し */
 .balloon-bottom {
-  top: 370px;
-  left: 50%;
+  top: clamp(310px, 40vh, 370px);
+  left: 52%;
   transform: translateX(-35%);
 }
 
@@ -154,18 +160,20 @@ body {
   position: absolute;
   z-index: 6;
   left: 50%;
-  top: 520px;
+  top: clamp(460px, 62vh, 520px);
   transform: translateX(-50%);
 
   display: inline-block;
-  padding: 20px 42px;
+  padding: clamp(14px, 1.5vw, 20px) clamp(24px, 3vw, 42px);
   border-radius: 999px;
   text-decoration: none;
   color: white;
-  font-size: 28px;
+  font-size: clamp(18px, 2vw, 28px);
   font-weight: 700;
+  text-align: center;
 
   background: linear-gradient(135deg, #35c9ff, #216cff);
+  border: 2px solid rgba(255, 255, 255, 0.18);
   box-shadow:
     0 0 18px rgba(65, 193, 255, 0.55),
     0 0 38px rgba(65, 193, 255, 0.35),
@@ -178,7 +186,6 @@ body {
     filter 0.25s ease;
 }
 
-/* マウスを乗せた時 */
 .hero-button:hover {
   transform: translateX(-50%) scale(1.06);
   box-shadow:
@@ -196,9 +203,9 @@ body {
   position: absolute;
   z-index: 6;
   left: 50%;
-  top: 620px;
+  top: clamp(550px, 74vh, 620px);
   transform: translateX(-50%);
-  font-size: 42px;
+  font-size: clamp(28px, 3vw, 42px);
   color: #d7eeff;
   text-shadow: 0 0 18px rgba(73, 196, 255, 0.8);
 }
@@ -217,68 +224,106 @@ body {
 }
 
 /* ========================================
+   タブレット
+======================================== */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 860px;
+  }
+
+  .balloon-top {
+    left: 58%;
+  }
+
+  .balloon-bottom {
+    left: 54%;
+  }
+}
+
+/* ========================================
    スマホ
 ======================================== */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .hero {
-    min-height: 900px;
+    min-height: 760px;
   }
 
   .hero-title {
-    font-size: 42px;
-    line-height: 1.15;
-    padding: 0 12px;
+    font-size: 38px;
   }
 
   .hero-subtitle {
     font-size: 18px;
-    margin-top: 12px;
-    padding: 0 16px;
+    line-height: 1.5;
   }
 
   .hero-yui {
-    width: 190px;
-    left: 0;
+    width: 160px;
+    left: -8px;
   }
 
   .hero-taka {
-    width: 210px;
-    right: -10px;
+    width: 185px;
+    right: -12px;
   }
 
   .balloon {
-    font-size: 16px;
-    padding: 12px 18px;
+    font-size: 14px;
+    padding: 10px 14px;
     white-space: normal;
-    max-width: 220px;
+    max-width: 180px;
+    border-radius: 24px;
   }
 
   .balloon-left {
-    top: 180px;
-    left: 12px;
+    top: 170px;
+    left: 10px;
+  }
+
+  .balloon-left::after {
+    left: 30px;
+    bottom: -12px;
+    border-width: 12px 10px 0 10px;
   }
 
   .balloon-top {
-    top: 250px;
-    left: 50%;
-    transform: translateX(-20%);
+    top: 245px;
+    left: 58%;
+    transform: translateX(-15%);
+  }
+
+  .balloon-top::after {
+    right: 38px;
+    bottom: -12px;
+    border-width: 12px 10px 0 10px;
   }
 
   .balloon-bottom {
     top: 320px;
-    left: 50%;
-    transform: translateX(-45%);
+    left: 53%;
+    transform: translateX(-38%);
+  }
+
+  .balloon-bottom::after {
+    left: 28px;
+    bottom: -12px;
+    border-width: 12px 10px 0 10px;
   }
 
   .hero-button {
-    top: 470px;
+    top: 450px;
+    width: calc(100% - 40px);
+    max-width: 340px;
+    padding: 15px 20px;
     font-size: 18px;
-    padding: 16px 28px;
+  }
+
+  .hero-button:hover {
+    transform: translateX(-50%) scale(1.03);
   }
 
   .hero-arrow {
-    top: 550px;
-    font-size: 34px;
+    top: 535px;
+    font-size: 30px;
   }
 }
-
