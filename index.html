@@ -8,27 +8,43 @@
 </head>
 <body>
 
-  <!-- ========================================
-       トップページ一番上
-  ========================================= -->
   <section class="hero">
-
-    <!-- 背景の上に少し暗い膜 -->
     <div class="hero-overlay"></div>
 
-    <!-- 左の女の子キャラ -->
-    <img src="images/yui.png" alt="ユイ" class="hero-yui">
+    <!-- キャラクター -->
+    <img src="./images/yui.png" alt="ユイ" class="hero-yui">
+    <img src="./images/taka.png" alt="タカ" class="hero-taka">
 
-    <!-- 右の男性キャラ -->
-    <img src="images/taka.png" alt="タカ" class="hero-taka">
-
-    <!-- 中央のタイトル・説明・ボタン -->
+    <!-- タイトル -->
     <div class="hero-content">
       <h1 class="hero-title">WORLD NEWS TOUR</h1>
       <p class="hero-subtitle">世界の出来事をやさしく理解する</p>
-      <a href="#news" class="hero-button">世界のニュースを見てみる</a>
     </div>
 
+    <!-- 吹き出し -->
+    <div class="hero-balloons">
+      <div class="balloon balloon-left">
+        最近ニュースが<br>騒がしいね
+      </div>
+
+      <div class="balloon balloon-top">
+        実は全部つながってるんだ
+      </div>
+
+      <div class="balloon balloon-bottom">
+        え？どういうこと？
+      </div>
+    </div>
+
+    <!-- ボタン -->
+    <a href="#news" class="hero-button">世界のニュースを見てみる</a>
+
+    <!-- 矢印 -->
+    <div class="hero-arrow">▼</div>
+  </section>
+
+  <section id="news" class="dummy-news">
+    <h2>今日のニュース</h2>
   </section>
 
 </body>
