@@ -115,56 +115,50 @@ body {
   white-space: nowrap;
 }
 
-/* ========================================
-   左の吹き出し（ユイ基準）
-======================================== */
+/* 左の吹き出し（ユイ基準） */
 .balloon-left {
-  top: 18%;
-  left: 34%;
+  top: 12%;
+  left: 26%;
 }
 
 .balloon-left::after {
   content: "";
   position: absolute;
-  left: 34px;
+  left: 26px;
   bottom: -14px;
   border-width: 14px 11px 0 11px;
   border-style: solid;
   border-color: #fffdf4 transparent transparent transparent;
 }
 
-/* ========================================
-   右上の吹き出し（タカ基準）
-======================================== */
+/* 右上の吹き出し（タカ基準） */
 .balloon-top {
-  top: 18%;
-  right: 18%;
+  top: 28%;
+  right: 10%;
   background: #f7fbff;
 }
 
 .balloon-top::after {
   content: "";
   position: absolute;
-  right: 36px;
+  right: 28px;
   bottom: -14px;
   border-width: 14px 11px 0 11px;
   border-style: solid;
   border-color: #f7fbff transparent transparent transparent;
 }
 
-/* ========================================
-   真ん中下の吹き出し
-======================================== */
+/* 真ん中下の吹き出し */
 .balloon-bottom {
-  top: clamp(300px, 43vh, 410px);
-  left: 50%;
+  top: 47%;
+  left: 53%;
   transform: translateX(-50%);
 }
 
 .balloon-bottom::after {
   content: "";
   position: absolute;
-  left: 34px;
+  left: 28px;
   bottom: -14px;
   border-width: 14px 11px 0 11px;
   border-style: solid;
@@ -258,57 +252,119 @@ body {
   }
 
   .balloon-bottom {
-    top: 390px;
+    top: 44%;
+    left: 52%;
   }
 }
 
 /* ========================================
    スマホ
 ======================================== */
-/* 左吹き出し */
-.balloon-left {
-  top: auto;
-  bottom: 95px;
-  left: 78px;
-}
+@media (max-width: 768px) {
+  .hero {
+    min-height: 760px;
+    background-position: center top;
+  }
 
-/* 右吹き出し */
-.balloon-top {
-  top: auto;
-  bottom: 98px;
-  right: 62px;
-}
+  .hero-content {
+    padding-top: 20px;
+  }
 
-/* 真ん中吹き出し */
-.balloon-bottom {
-  top: 250px;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 220px;
-  white-space: nowrap;
-}
+  .hero-title {
+    font-size: 38px;
+    line-height: 1.05;
+    padding: 0 12px;
+  }
 
-/* ボタン */
-.hero-button {
-  position: relative;
-  top: auto;
-  left: auto;
-  transform: none;
-  display: block;
-  width: calc(100% - 28px);
-  max-width: 360px;
-  margin: 215px auto 110px auto;
-  padding: 16px 20px;
-  font-size: 18px;
-  text-align: center;
-}
+  .hero-subtitle {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 16px;
+    padding: 0 16px;
+  }
 
-/* 矢印 */
-.hero-arrow {
-  position: absolute;
-  left: 50%;
-  top: auto;
-  bottom: 82px;
-  transform: translateX(-50%);
-  font-size: 28px;
+  .yui-group {
+    width: 150px;
+    left: -20px;
+    bottom: 0;
+  }
+
+  .taka-group {
+    width: 175px;
+    right: -18px;
+    bottom: 0;
+  }
+
+  .balloon {
+    font-size: 14px;
+    padding: 10px 14px;
+    max-width: 170px;
+    white-space: normal;
+    border-radius: 24px;
+  }
+
+  .balloon-left {
+    top: auto;
+    bottom: 95px;
+    left: 78px;
+  }
+
+  .balloon-left::after {
+    left: 24px;
+    bottom: -10px;
+    border-width: 10px 8px 0 8px;
+  }
+
+  .balloon-top {
+    top: auto;
+    bottom: 98px;
+    right: 62px;
+  }
+
+  .balloon-top::after {
+    right: 26px;
+    bottom: -10px;
+    border-width: 10px 8px 0 8px;
+  }
+
+  .balloon-bottom {
+    top: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 220px;
+    white-space: nowrap;
+  }
+
+  .balloon-bottom::after {
+    left: 28px;
+    bottom: -10px;
+    border-width: 10px 8px 0 8px;
+  }
+
+  .hero-button {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    display: block;
+    width: calc(100% - 28px);
+    max-width: 360px;
+    margin: 215px auto 110px auto;
+    padding: 16px 20px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .hero-button:hover {
+    transform: none;
+  }
+
+  .hero-arrow {
+    position: absolute;
+    left: 50%;
+    top: auto;
+    bottom: 82px;
+    transform: translateX(-50%);
+    font-size: 28px;
+  }
 }
