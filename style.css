@@ -267,39 +267,55 @@ body {
 ======================================== */
 @media (max-width: 768px) {
   .hero {
-    min-height: 760px;
+    min-height: auto;
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+
+  .hero-content {
+    padding-top: 20px;
+    position: relative;
+    z-index: 5;
   }
 
   .hero-title {
     font-size: 38px;
+    line-height: 1.05;
+    padding: 0 12px;
   }
 
   .hero-subtitle {
     font-size: 18px;
     line-height: 1.5;
+    margin-top: 16px;
+    padding: 0 16px;
   }
 
   .yui-group {
-    width: 165px;
-    left: -10px;
+    width: 150px;
+    left: -20px;
+    bottom: 0;
   }
 
   .taka-group {
-    width: 195px;
-    right: -16px;
+    width: 175px;
+    right: -18px;
+    bottom: 0;
   }
 
   .balloon {
     font-size: 14px;
     padding: 10px 14px;
     white-space: normal;
-    max-width: 180px;
+    max-width: 170px;
     border-radius: 24px;
   }
 
+  /* 左吹き出し */
   .balloon-left {
-    top: 16%;
-    left: 38%;
+    top: auto;
+    bottom: 150px;
+    left: 92px;
   }
 
   .balloon-left::after {
@@ -308,9 +324,11 @@ body {
     border-width: 10px 8px 0 8px;
   }
 
+  /* 右吹き出し */
   .balloon-top {
-    top: 18%;
-    right: 10%;
+    top: auto;
+    bottom: 155px;
+    right: 78px;
   }
 
   .balloon-top::after {
@@ -319,32 +337,46 @@ body {
     border-width: 10px 8px 0 8px;
   }
 
+  /* 真ん中吹き出し */
   .balloon-bottom {
-    top: 315px;
-    left: 52%;
+    top: 250px;
+    left: 50%;
     transform: translateX(-50%);
+    max-width: 220px;
+    white-space: nowrap;
   }
 
   .balloon-bottom::after {
-    left: 24px;
+    left: 28px;
     bottom: -10px;
     border-width: 10px 8px 0 8px;
   }
 
   .hero-button {
-    top: 450px;
-    width: calc(100% - 40px);
-    max-width: 340px;
-    padding: 15px 20px;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    display: block;
+    width: calc(100% - 32px);
+    max-width: 360px;
+    margin: 230px auto 140px auto;
+    padding: 16px 20px;
     font-size: 18px;
+    text-align: center;
   }
 
   .hero-button:hover {
-    transform: translateX(-50%) scale(1.03);
+    transform: none;
   }
 
   .hero-arrow {
-    top: 535px;
-    font-size: 30px;
+    position: absolute;
+    left: 50%;
+    top: auto;
+    bottom: 120px;
+    transform: translateX(-50%);
+    font-size: 28px;
   }
 }
+
