@@ -141,13 +141,14 @@ body {
 .balloon-top::after {
   content: "";
   position: absolute;
-  right: 28px;
-  bottom: -14px;
+  right: 5px;
+  bottom: -7px;
   border-width: 14px 11px 0 11px;
   border-style: solid;
   border-color: #f7fbff transparent transparent transparent;
-   toransform: rotate(-30deg);
+  transform: rotate(-30deg);
 }
+
 
 /* 真ん中下の吹き出し */
 .balloon-bottom {
