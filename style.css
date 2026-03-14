@@ -15,7 +15,6 @@ body {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-
   background-image: url("./images/hero-bg.png");
   background-size: cover;
   background-position: center;
@@ -86,12 +85,7 @@ body {
 /* ========================================
    キャラクター
 ======================================== */
-.hero-yui {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
+.hero-yui,
 .hero-taka {
   display: block;
   width: 100%;
@@ -121,7 +115,6 @@ body {
   left: 50%;
 }
 
-
 /* 右上の吹き出し（タカ基準） */
 .balloon-top {
   top: 8%;
@@ -145,7 +138,6 @@ body {
   left: 50%;
   top: clamp(460px, 62vh, 520px);
   transform: translateX(-50%);
-
   display: inline-block;
   padding: clamp(14px, 1.5vw, 20px) clamp(24px, 3vw, 42px);
   border-radius: 999px;
@@ -154,14 +146,12 @@ body {
   font-size: clamp(18px, 2vw, 28px);
   font-weight: 700;
   text-align: center;
-
   background: linear-gradient(135deg, #35c9ff, #216cff);
   border: 2px solid rgba(255, 255, 255, 0.18);
   box-shadow:
     0 0 18px rgba(65, 193, 255, 0.55),
     0 0 38px rgba(65, 193, 255, 0.35),
     0 8px 30px rgba(0, 0, 0, 0.28);
-
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
@@ -276,22 +266,10 @@ body {
     left: 92px;
   }
 
-  .balloon-left::after {
-    left: 22px;
-    bottom: -10px;
-    border-width: 10px 8px 0 8px;
-  }
-
   .balloon-top {
     top: auto;
     bottom: 95px;
     right: 72px;
-  }
-
-  .balloon-top::after {
-    right: 24px;
-    bottom: -10px;
-    border-width: 10px 8px 0 8px;
   }
 
   .balloon-bottom {
@@ -302,25 +280,19 @@ body {
     white-space: nowrap;
   }
 
-  .balloon-bottom::after {
-    left: 26px;
-    bottom: -10px;
-    border-width: 10px 8px 0 8px;
+  .hero-button {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    display: block;
+    width: 85%;
+    max-width: 300px;
+    margin: 250px auto 120px auto;
+    padding: 14px 18px;
+    font-size: 16px;
+    text-align: center;
   }
-
- .hero-button {
-  position: relative;
-  top: auto;
-  left: auto;
-  transform: none;
-  display: block;
-  width: 85%;
-  max-width: 300px;
-  margin: 250px auto 120px auto;
-  padding: 14px 18px;
-  font-size: 16px;
-  text-align: center;
-}
 
   .hero-button:hover {
     transform: none;
