@@ -298,7 +298,7 @@ body {
   .balloon {
     font-size: 14px;
     padding: 10px 14px;
-    max-width: 170px;
+    max-width: 210px;
     white-space: normal;
     border-radius: 24px;
   }
@@ -349,7 +349,7 @@ body {
     display: block;
     width: calc(100% - 28px);
     max-width: 360px;
-    margin: 215px auto 110px auto;
+    margin: 300px auto 120px auto;
     padding: 16px 20px;
     font-size: 18px;
     text-align: center;
