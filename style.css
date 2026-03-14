@@ -133,8 +133,8 @@ body {
 
 /* 右上の吹き出し（タカ基準） */
 .balloon-top {
-  top: 28%;
-  right: 10%;
+  top: 8%;
+  right: 30%;
   background: #f7fbff;
 }
 
@@ -146,6 +146,7 @@ body {
   border-width: 14px 11px 0 11px;
   border-style: solid;
   border-color: #f7fbff transparent transparent transparent;
+   toransform: rotate(-30deg);
 }
 
 /* 真ん中下の吹き出し */
