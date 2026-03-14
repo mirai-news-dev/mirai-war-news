@@ -117,15 +117,15 @@ body {
 
 /* 左の吹き出し（ユイ基準） */
 .balloon-left {
-  top: 12%;
-  left: 26%;
+  top: -10%;
+  left: 50%;
 }
 
 .balloon-left::after {
   content: "";
   position: absolute;
-  left: 26px;
-  bottom: -14px;
+  left: 30px;
+  bottom: -10px;
   border-width: 14px 11px 0 11px;
   border-style: solid;
   border-color: #fffdf4 transparent transparent transparent;
