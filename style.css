@@ -342,19 +342,19 @@ body {
     border-width: 10px 8px 0 8px;
   }
 
-  .hero-button {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    display: block;
-    width: calc(100% - 28px);
-    max-width: 360px;
-    margin: 250px auto 120px auto;
-    padding: 16px 20px;
-    font-size: 18px;
-    text-align: center;
-  }
+ .hero-button {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  display: block;
+  width: 85%;
+  max-width: 300px;
+  margin: 250px auto 120px auto;
+  padding: 14px 18px;
+  font-size: 16px;
+  text-align: center;
+}
 
   .hero-button:hover {
     transform: none;
