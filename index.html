@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WORLD NEWS TOUR</title>
   <meta name="description" content="世界ニュースを会話形式でやさしく解説するAIニュースサイト">
-  <link rel="stylesheet" href="style_revised.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="site-logo">WORLD NEWS TOUR</a>
+      <a href="index.html" class="site-logo">WORLD NEWS TOUR</a>
       <nav class="site-nav">
-        <a href="#news">今日のニュース</a>
-        <a href="#points">今日のポイント</a>
-        <a href="#about">このサイトについて</a>
+        <a href="index.html#news">今日のニュース</a>
+        <a href="news.html">記事一覧</a>
+        <a href="index.html#about">このサイトについて</a>
       </nav>
     </div>
   </header>
@@ -39,7 +39,7 @@
           </div>
 
           <div class="hero-actions">
-            <a href="#news" class="hero-button">世界のニュースを見てみる</a>
+            <a href="news.html" class="hero-button">世界のニュースを見てみる</a>
             <div class="hero-arrow">▼</div>
           </div>
         </div>
@@ -57,14 +57,17 @@
 
     <section id="news" class="section section-news">
       <div class="container">
-        <div class="section-heading">
-          <p class="section-label">🔥 今日のニュース</p>
-          <h2>気になるテーマを3つに整理</h2>
+        <div class="section-heading section-heading-split">
+          <div>
+            <p class="section-label">🔥 今日のニュース</p>
+            <h2>気になるテーマを3つに整理</h2>
+          </div>
+          <a href="news.html" class="section-link">一覧ページへ →</a>
         </div>
 
         <div class="news-grid">
           <article class="news-card news-card-wide">
-            <a href="#" class="news-card-link">
+            <a href="article.html" class="news-card-link">
               <div class="news-card-image" style="background-image: url('./images/hero-bg.png');"></div>
               <div class="news-card-body">
                 <p class="news-card-category">地政学 × 経済</p>
@@ -76,7 +79,7 @@
           </article>
 
           <article class="news-card">
-            <a href="#" class="news-card-link">
+            <a href="article.html" class="news-card-link">
               <div class="news-card-image" style="background-image: url('./images/hero-bg.png');"></div>
               <div class="news-card-body">
                 <p class="news-card-category">資源価格</p>
@@ -88,7 +91,7 @@
           </article>
 
           <article class="news-card">
-            <a href="#" class="news-card-link">
+            <a href="article.html" class="news-card-link">
               <div class="news-card-image" style="background-image: url('./images/hero-bg.png');"></div>
               <div class="news-card-body">
                 <p class="news-card-category">安全保障</p>
@@ -123,7 +126,7 @@
               <div class="speech speech-light">その結果</div>
               <div class="speech speech-blue">原油価格や輸送コストが上がりやすい</div>
             </div>
-            <a href="#" class="text-link">解説記事を読む →</a>
+            <a href="article.html" class="text-link">解説記事を読む →</a>
           </div>
 
           <div class="points-character right">
