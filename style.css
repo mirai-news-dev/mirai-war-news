@@ -1,0 +1,524 @@
+/* ========================================
+   1. 全体設定
+======================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+  background: #07111f;
+  color: #ffffff;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.section {
+  padding: 88px 0;
+}
+
+.section-heading {
+  margin-bottom: 32px;
+}
+
+.section-label {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #9fd7ff;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.25;
+}
+
+/* ========================================
+   2. ヘッダー
+======================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(10px);
+  background: rgba(5, 12, 26, 0.78);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+}
+
+.site-logo {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: #d7edff;
+  font-size: 14px;
+}
+
+/* ========================================
+   3. ヒーロー
+======================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-image: url("./images/hero-bg.png");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(4, 11, 26, 0.18), rgba(4, 11, 26, 0.28), rgba(4, 11, 26, 0.82)),
+    radial-gradient(circle at center, rgba(57, 161, 255, 0.12), transparent 55%);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: end;
+  gap: 24px;
+  padding-top: 56px;
+}
+
+.hero-copy {
+  align-self: center;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.hero-kicker {
+  margin: 0 0 8px;
+  color: #9bd8ff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(44px, 7vw, 86px);
+  font-weight: 800;
+  line-height: 1.05;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+.hero-subtitle {
+  margin: 16px 0 0;
+  font-size: clamp(20px, 2.4vw, 34px);
+  font-weight: 700;
+  color: #f3f8ff;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero-balloons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.hero-balloons-top {
+  margin-top: 40px;
+}
+
+.hero-balloons-bottom {
+  margin-top: 18px;
+}
+
+.speech {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: #fffdf4;
+  color: #1f2c44;
+  font-size: clamp(15px, 1.7vw, 24px);
+  font-weight: 700;
+  line-height: 1.45;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  text-align: center;
+}
+
+.speech-right {
+  background: #f5fbff;
+}
+
+.speech-blue {
+  background: linear-gradient(135deg, rgba(159, 220, 255, 0.95), rgba(228, 244, 255, 0.95));
+}
+
+.hero-actions {
+  margin-top: 34px;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 16px 34px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #35c9ff, #216cff);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 700;
+  color: #ffffff;
+  box-shadow:
+    0 0 18px rgba(65, 193, 255, 0.55),
+    0 0 38px rgba(65, 193, 255, 0.35),
+    0 8px 30px rgba(0, 0, 0, 0.28);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hero-button:hover {
+  transform: scale(1.04);
+  opacity: 0.92;
+}
+
+.hero-arrow {
+  margin-top: 16px;
+  font-size: 28px;
+  color: #d8efff;
+  text-shadow: 0 0 18px rgba(73, 196, 255, 0.7);
+}
+
+.hero-characters {
+  position: relative;
+  min-height: 720px;
+}
+
+.character {
+  position: absolute;
+  bottom: 0;
+}
+
+.character-yui {
+  left: 0;
+  width: min(320px, 46%);
+}
+
+.character-taka {
+  right: 0;
+  width: min(390px, 56%);
+}
+
+/* ========================================
+   4. ニュースカード
+======================================== */
+.section-news {
+  background: linear-gradient(to bottom, #07111f, #08182f);
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 22px;
+}
+
+.news-card {
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+.news-card-link {
+  display: block;
+  height: 100%;
+}
+
+.news-card-image {
+  min-height: 210px;
+  background-size: cover;
+  background-position: center;
+}
+
+.news-card-body {
+  padding: 22px;
+}
+
+.news-card-category {
+  margin: 0 0 8px;
+  color: #9fd7ff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.news-card-body h3 {
+  margin: 0 0 12px;
+  font-size: 26px;
+  line-height: 1.3;
+}
+
+.news-card-talk {
+  margin: 0 0 14px;
+  color: #dcecff;
+}
+
+.news-card-more {
+  color: #7fd3ff;
+  font-weight: 700;
+}
+
+.news-card-wide .news-card-image {
+  min-height: 280px;
+}
+
+/* ========================================
+   5. ポイント
+======================================== */
+.section-points {
+  background: radial-gradient(circle at top, rgba(71, 139, 255, 0.12), transparent 42%), #07111f;
+}
+
+.points-box {
+  display: grid;
+  grid-template-columns: 180px 1fr 220px;
+  align-items: end;
+  gap: 16px;
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.points-character img {
+  max-height: 250px;
+  object-fit: contain;
+}
+
+.points-content {
+  text-align: center;
+}
+
+.point-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.point-row-right {
+  justify-content: center;
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #7fd3ff;
+  font-weight: 700;
+}
+
+/* ========================================
+   6. About / Footer
+======================================== */
+.section-about {
+  background: #08162b;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.about-card {
+  padding: 28px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-card h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+.site-footer {
+  padding: 28px 0;
+  text-align: center;
+  color: #b3cce2;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ========================================
+   7. タブレット
+======================================== */
+@media (max-width: 1024px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding-top: 40px;
+  }
+
+  .hero-copy {
+    padding-bottom: 0;
+  }
+
+  .hero-characters {
+    min-height: 420px;
+  }
+
+  .character-yui {
+    width: min(240px, 42%);
+  }
+
+  .character-taka {
+    width: min(300px, 50%);
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .news-card-wide {
+    grid-column: span 2;
+  }
+
+  .points-box {
+    grid-template-columns: 140px 1fr 160px;
+  }
+}
+
+/* ========================================
+   8. スマホ
+======================================== */
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-nav {
+    gap: 14px;
+  }
+
+  .hero {
+    min-height: auto;
+    background-position: center top;
+  }
+
+  .hero-inner {
+    min-height: auto;
+    padding-top: 32px;
+    padding-bottom: 24px;
+  }
+
+  .hero-copy {
+    order: 1;
+  }
+
+  .hero-characters {
+    order: 2;
+    min-height: 280px;
+    margin-top: 12px;
+  }
+
+  .character-yui {
+    width: 150px;
+    left: -10px;
+  }
+
+  .character-taka {
+    width: 180px;
+    right: -12px;
+  }
+
+  .hero-balloons-top,
+  .hero-balloons-bottom {
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .speech {
+    width: 100%;
+    border-radius: 24px;
+    padding: 14px 16px;
+    min-height: auto;
+    white-space: normal;
+  }
+
+  .hero-button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card-wide {
+    grid-column: span 1;
+  }
+
+  .news-card-image,
+  .news-card-wide .news-card-image {
+    min-height: 200px;
+  }
+
+  .points-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .points-character {
+    display: flex;
+    justify-content: center;
+  }
+
+  .points-character img {
+    max-height: 180px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
