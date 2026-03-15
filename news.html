@@ -8,29 +8,43 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- =============================
+       ヘッダー
+  ============================== -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="site-logo">WORLD NEWS TOUR</a>
       <nav class="site-nav">
         <a href="index.html">トップ</a>
         <a href="news.html">記事一覧</a>
-        <a href="article.html">記事サンプル</a>
+        <a href="article.html">記事ページ見本</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- =============================
+         一覧ページの上部
+    ============================== -->
     <section class="page-hero page-hero-list">
-      <div class="container">
+      <div class="container page-hero-inner">
         <p class="page-hero-label">NEWS LIST</p>
-        <h1>記事一覧ページ</h1>
-        <p class="page-hero-text">ここに毎日のニュース記事を並べていきます。まずはダミー記事で形を整え、あとからPythonで自動生成しやすい形にします。</p>
+        <h1>記事一覧</h1>
+        <p class="page-hero-text">
+          ここに毎日のニュース記事を並べていきます。<br>
+          最初はダミー記事で形を整えて、あとからPythonで自動生成しやすい構造にします。
+        </p>
       </div>
     </section>
 
+    <!-- =============================
+         一覧本体
+    ============================== -->
     <section class="section section-listing">
       <div class="container listing-layout">
-        <aside class="sidebar-card">
+
+        <!-- 左カラム：メモやカテゴリ -->
+        <aside class="sidebar-card listing-sidebar">
           <h2>カテゴリ</h2>
           <ul class="sidebar-menu">
             <li><a href="#">すべて</a></li>
@@ -41,41 +55,57 @@
           </ul>
 
           <h2>初心者向けメモ</h2>
-          <p class="sidebar-note">この箱の中身は、あとで自由に増やしたり削除できます。最初は「カテゴリ」と「簡単な説明」だけで十分です。</p>
+          <p class="sidebar-note">
+            この左側の箱は、あとで自由に変更できます。<br>
+            最初は「カテゴリ」「説明文」だけでOKです。
+          </p>
         </aside>
 
+        <!-- 右カラム：記事カード一覧 -->
         <div class="listing-main">
           <div class="list-toolbar">
             <p class="result-count">最新の記事 6件</p>
-            <a href="index.html" class="small-button">トップへ戻る</a>
+            <div class="toolbar-actions">
+              <a href="index.html" class="small-button">トップへ戻る</a>
+            </div>
           </div>
 
           <div class="article-list">
+            <!-- 1件分のカード ここから -->
             <article class="list-card">
               <div class="list-card-image" style="background-image: url('./images/hero-bg.png');"></div>
               <div class="list-card-body">
                 <p class="list-meta">2026.03.15 | 地政学 × 経済</p>
                 <h2><a href="article.html">中国経済が揺れている理由をやさしく解説</a></h2>
-                <p>景気の減速、不動産問題、消費の弱さが世界市場にどうつながるのかを、会話形式で整理します。</p>
+                <p>
+                  景気の減速、不動産問題、消費の弱さが世界市場にどうつながるのかを、
+                  会話形式でやさしく整理します。
+                </p>
                 <div class="tag-row">
                   <span class="tag">中国</span>
                   <span class="tag">景気</span>
                   <span class="tag">市場</span>
                 </div>
+                <a href="article.html" class="read-more-link">続きを読む →</a>
               </div>
             </article>
+            <!-- 1件分のカード ここまで -->
 
             <article class="list-card">
               <div class="list-card-image" style="background-image: url('./images/hero-bg.png');"></div>
               <div class="list-card-body">
                 <p class="list-meta">2026.03.15 | 原油・資源</p>
                 <h2><a href="article.html">原油価格が上がると生活に何が起きる？</a></h2>
-                <p>ガソリン代だけではなく、輸送費や食品価格にも影響が出る流れを、短くわかりやすく説明します。</p>
+                <p>
+                  ガソリン代だけではなく、輸送費や食品価格にも影響が出る流れを、
+                  短くわかりやすく説明します。
+                </p>
                 <div class="tag-row">
                   <span class="tag">原油</span>
                   <span class="tag">物価</span>
                   <span class="tag">生活</span>
                 </div>
+                <a href="article.html" class="read-more-link">続きを読む →</a>
               </div>
             </article>
 
@@ -84,12 +114,16 @@
               <div class="list-card-body">
                 <p class="list-meta">2026.03.14 | 安全保障</p>
                 <h2><a href="article.html">紛争拡大で株価はどう動きやすいのか</a></h2>
-                <p>市場が不安を感じるとき、どんな資産にお金が流れやすいのかを、初心者向けに整理します。</p>
+                <p>
+                  市場が不安を感じるとき、どんな資産にお金が流れやすいのかを、
+                  初心者向けに整理します。
+                </p>
                 <div class="tag-row">
                   <span class="tag">株価</span>
                   <span class="tag">安全資産</span>
                   <span class="tag">市場心理</span>
                 </div>
+                <a href="article.html" class="read-more-link">続きを読む →</a>
               </div>
             </article>
 
@@ -98,12 +132,16 @@
               <div class="list-card-body">
                 <p class="list-meta">2026.03.14 | 地政学</p>
                 <h2><a href="article.html">海上輸送が止まると何が困る？</a></h2>
-                <p>物流ルートの混乱が、エネルギーや日用品にまで広がる理由を、会話形式で追います。</p>
+                <p>
+                  物流ルートの混乱が、エネルギーや日用品にまで広がる理由を、
+                  会話形式で追います。
+                </p>
                 <div class="tag-row">
                   <span class="tag">物流</span>
                   <span class="tag">海運</span>
                   <span class="tag">供給網</span>
                 </div>
+                <a href="article.html" class="read-more-link">続きを読む →</a>
               </div>
             </article>
 
@@ -112,12 +150,16 @@
               <div class="list-card-body">
                 <p class="list-meta">2026.03.13 | 金融</p>
                 <h2><a href="article.html">金利が上がると景気に何が起きる？</a></h2>
-                <p>中央銀行の動きと、企業活動や株価の関係を、できるだけ専門用語を減らして説明します。</p>
+                <p>
+                  中央銀行の動きと、企業活動や株価の関係を、
+                  できるだけ専門用語を減らして説明します。
+                </p>
                 <div class="tag-row">
                   <span class="tag">金利</span>
                   <span class="tag">中央銀行</span>
                   <span class="tag">景気</span>
                 </div>
+                <a href="article.html" class="read-more-link">続きを読む →</a>
               </div>
             </article>
 
@@ -126,12 +168,15 @@
               <div class="list-card-body">
                 <p class="list-meta">2026.03.13 | テクノロジー × 安保</p>
                 <h2><a href="article.html">半導体不足が世界経済に与える影響</a></h2>
-                <p>半導体が不足すると、スマホだけでなく自動車や軍需まで影響を受ける理由を整理します。</p>
+                <p>
+                  半導体が不足すると、スマホだけでなく自動車や軍需まで影響を受ける理由を整理します。
+                </p>
                 <div class="tag-row">
                   <span class="tag">半導体</span>
                   <span class="tag">供給網</span>
                   <span class="tag">産業</span>
                 </div>
+                <a href="article.html" class="read-more-link">続きを読む →</a>
               </div>
             </article>
           </div>

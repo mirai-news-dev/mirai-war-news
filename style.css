@@ -746,3 +746,46 @@ img {
     margin: 0 auto;
   }
 }
+
+/* ========================================
+   9. Step3 追加調整（一覧・記事ページを初心者向けに整理）
+======================================== */
+.page-hero-inner {
+  max-width: 800px;
+}
+
+.listing-sidebar {
+  align-self: start;
+  position: sticky;
+  top: 96px;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.read-more-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-weight: 700;
+  color: #9fd7ff;
+}
+
+.read-more-link:hover {
+  opacity: 0.85;
+}
+
+.article-bottom-nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+@media (max-width: 900px) {
+  .listing-sidebar {
+    position: static;
+  }
+}
