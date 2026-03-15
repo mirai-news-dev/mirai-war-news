@@ -4,155 +4,114 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>記事ページ | WORLD NEWS TOUR</title>
-  <meta name="description" content="会話形式でニュースを解説する記事ページのテンプレート">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- =============================
-       ヘッダー
-  ============================== -->
-  <header class="site-header">
+  <header class="site-header sub-header">
     <div class="container header-inner">
       <a href="index.html" class="site-logo">WORLD NEWS TOUR</a>
       <nav class="site-nav">
         <a href="index.html">トップ</a>
         <a href="news.html">記事一覧</a>
-        <a href="article.html">記事見本</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- =============================
-         記事タイトルエリア
-    ============================== -->
-    <section class="page-hero page-hero-article">
-      <div class="container page-hero-inner">
-        <p class="page-hero-label">ARTICLE PAGE</p>
-        <h1>中国経済が揺れている理由をやさしく解説</h1>
-        <p class="page-hero-text">
-          ニュース概要、会話解説、経済への影響、まとめの順で読める、
-          記事ページの基本テンプレートです。
+  <main class="page-main">
+    <article class="article-page">
+      <div class="container article-container">
+        <nav class="breadcrumb">
+          <a href="index.html">トップ</a>
+          <span>›</span>
+          <a href="news.html">記事一覧</a>
+          <span>›</span>
+          <span>記事ページ</span>
+        </nav>
+
+        <p class="article-category">地政学 / 経済</p>
+
+        <!-- ここを記事ごとに変更 -->
+        <h1 class="article-title">中国経済が揺れている理由</h1>
+
+        <!-- ここを記事ごとに変更 -->
+        <p class="article-lead">
+          この記事では、中国経済の不安がなぜ広がっているのか、
+          不動産・景気・雇用という3つの視点からやさしく整理します。
         </p>
-      </div>
-    </section>
 
-    <!-- =============================
-         記事本体
-    ============================== -->
-    <article class="section article-section">
-      <div class="container article-layout">
+        <!-- ここを記事ごとに変更 -->
+        <img src="images/hero-bg.png" alt="記事メイン画像" class="article-main-image">
 
-        <!-- メイン本文 -->
-        <div class="article-main">
-          <div class="article-meta">公開日: 2026.03.15 / カテゴリ: 地政学 × 経済</div>
+        <section class="article-block">
+          <h2>この記事でわかるポイント</h2>
+          <ul class="article-points">
+            <li>不動産問題が景気全体に与える影響</li>
+            <li>消費の弱さと企業心理の関係</li>
+            <li>日本や世界経済への波及ルート</li>
+          </ul>
+        </section>
 
-          <div class="article-cover" style="background-image: url('./images/hero-bg.png');"></div>
+        <section class="article-block">
+          <h2>ニュース概要</h2>
+          <p>
+            中国経済では、不動産市場の弱さや個人消費の鈍さが重なり、
+            成長の勢いに対する不安が続いています。
+            市場では「景気刺激策がどこまで効くか」が注目されています。
+          </p>
+        </section>
 
-          <section class="article-block">
-            <h2>① タイトル</h2>
-            <p>
-              中国経済が揺れている理由を、初心者にもわかりやすく説明する記事です。
-            </p>
-          </section>
+        <section class="article-block article-talk">
+          <h2>会話でわかる解説</h2>
 
-          <section class="article-block">
-            <h2>② リード文</h2>
-            <div class="lead-box">
-              <p>この記事でわかる3つのポイント</p>
-              <ul>
-                <li>中国経済が減速すると、世界市場にどんな影響が出るのか</li>
-                <li>不動産不振や消費の弱さがなぜ問題なのか</li>
-                <li>日本や私たちの生活にどうつながるのか</li>
-              </ul>
+          <div class="talk-row talk-left">
+            <img src="images/yui.png" alt="ユイ" class="talk-character">
+            <div class="talk-balloon">
+              中国の景気が弱いと、そんなに大きな影響があるの？
             </div>
-          </section>
-
-          <section class="article-block">
-            <h2>③ ニュース概要</h2>
-            <p>
-              中国では不動産市場の不調や個人消費の弱さが続き、景気減速への不安が高まっています。
-              中国は世界経済で大きな割合を占めるため、その変化は資源価格、輸出企業、株式市場などへ波及しやすいです。
-            </p>
-          </section>
-
-          <section class="article-block">
-            <h2>④ キャラクター会話解説</h2>
-
-            <div class="dialogue-box">
-              <div class="dialogue-row left">
-                <img src="./images/yui.png" alt="ユイ">
-                <div class="dialogue-speech">中国の景気が弱いと、どうして世界に影響するの？</div>
-              </div>
-
-              <div class="dialogue-row right">
-                <div class="dialogue-speech dialogue-speech-blue">
-                  中国はモノをたくさん作って、たくさん買う大きな国だからだよ。動きが鈍ると、資源も企業も市場も連鎖しやすいんだ。
-                </div>
-                <img src="./images/taka.png" alt="タカ">
-              </div>
-
-              <div class="dialogue-row left">
-                <img src="./images/yui.png" alt="ユイ">
-                <div class="dialogue-speech">つまり一つの国の問題じゃないんだね。</div>
-              </div>
-            </div>
-          </section>
-
-          <section class="article-block">
-            <h2>⑤ 経済・地政学の影響</h2>
-            <p>
-              中国経済の減速は、鉄鉱石や原油などの資源需要の見通しを変えます。
-              また、中国向け輸出が多い国や企業にとっては売上見通しの悪化にもつながります。
-              地政学リスクと重なると、市場はさらに不安定になりやすいです。
-            </p>
-          </section>
-
-          <section class="article-block">
-            <h2>⑥ まとめ</h2>
-            <p>
-              ニュースを理解するときは、「その国の出来事」だけで終わらず、
-              資源・物流・株価・生活コストにつながる流れまで見ることが大切です。
-              このサイトでは、その流れを会話形式でやさしく整理していきます。
-            </p>
-          </section>
-
-          <div class="article-bottom-nav">
-            <a href="news.html" class="small-button">記事一覧へ戻る</a>
-            <a href="index.html" class="small-button">トップへ戻る</a>
           </div>
+
+          <div class="talk-row talk-right">
+            <div class="talk-balloon talk-balloon-blue">
+              あるよ。中国は世界経済の大きなエンジンだから、需要が弱ると資源や輸出にも影響が出やすいんだ。
+            </div>
+            <img src="images/taka.png" alt="タカ" class="talk-character">
+          </div>
+
+          <div class="talk-row talk-left">
+            <img src="images/yui.png" alt="ユイ" class="talk-character">
+            <div class="talk-balloon">
+              じゃあ日本にも関係あるんだね。
+            </div>
+          </div>
+        </section>
+
+        <section class="article-block">
+          <h2>経済・地政学の影響</h2>
+          <p>
+            中国経済が弱いと、資源価格、物流、周辺国の輸出、投資家心理に影響が広がります。
+            そのため、単なる国内問題ではなく、世界全体の景気見通しにも関わるテーマです。
+          </p>
+        </section>
+
+        <section class="article-block">
+          <h2>まとめ</h2>
+          <p>
+            このニュースを見るときは、目先の数字だけでなく、
+            「不動産」「消費」「世界への波及」の3つをセットで見ると流れがつかみやすくなります。
+          </p>
+        </section>
+
+        <div class="article-action-row">
+          <a href="news.html" class="back-button">一覧に戻る</a>
         </div>
-
-        <!-- サイドバー -->
-        <aside class="article-side">
-          <div class="sidebar-card">
-            <h2>この記事の見出し</h2>
-            <ol class="side-list-numbered">
-              <li>タイトル</li>
-              <li>リード文</li>
-              <li>ニュース概要</li>
-              <li>会話解説</li>
-              <li>影響</li>
-              <li>まとめ</li>
-            </ol>
-          </div>
-
-          <div class="sidebar-card">
-            <h2>次に読む</h2>
-            <ul class="sidebar-menu">
-              <li><a href="article.html">原油価格が上がると何が起きる？</a></li>
-              <li><a href="article.html">戦争と株価の関係</a></li>
-              <li><a href="news.html">記事一覧ページを見る</a></li>
-            </ul>
-          </div>
-        </aside>
       </div>
     </article>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
+    <div class="container footer-inner">
       <p>© WORLD NEWS TOUR</p>
+      <a href="index.html">トップへ戻る</a>
     </div>
   </footer>
 </body>

@@ -3,180 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>記事一覧 | WORLD NEWS TOUR</title>
-  <meta name="description" content="戦争・地政学・経済ニュースを会話形式でやさしく解説する記事一覧ページ">
+  <title>ニュース一覧 | WORLD NEWS TOUR</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- =============================
-       ヘッダー
-  ============================== -->
-  <header class="site-header">
+  <header class="site-header sub-header">
     <div class="container header-inner">
       <a href="index.html" class="site-logo">WORLD NEWS TOUR</a>
       <nav class="site-nav">
         <a href="index.html">トップ</a>
-        <a href="news.html">記事一覧</a>
-        <a href="article.html">記事ページ見本</a>
+        <a href="news.html" class="active">記事一覧</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- =============================
-         一覧ページの上部
-    ============================== -->
-    <section class="page-hero page-hero-list">
-      <div class="container page-hero-inner">
-        <p class="page-hero-label">NEWS LIST</p>
-        <h1>記事一覧</h1>
-        <p class="page-hero-text">
-          ここに毎日のニュース記事を並べていきます。<br>
-          最初はダミー記事で形を整えて、あとからPythonで自動生成しやすい構造にします。
+  <main class="page-main">
+    <section class="page-hero page-hero-news">
+      <div class="container">
+        <p class="page-kicker">NEWS LIST</p>
+        <h1 class="page-title">記事一覧</h1>
+        <p class="page-description">
+          ここはニュース記事を並べるページです。<br>
+          あとで記事数が増えても、同じカードをコピーして追加できます。
         </p>
       </div>
     </section>
 
-    <!-- =============================
-         一覧本体
-    ============================== -->
-    <section class="section section-listing">
-      <div class="container listing-layout">
-
-        <!-- 左カラム：メモやカテゴリ -->
-        <aside class="sidebar-card listing-sidebar">
-          <h2>カテゴリ</h2>
-          <ul class="sidebar-menu">
-            <li><a href="#">すべて</a></li>
-            <li><a href="#">戦争・安全保障</a></li>
-            <li><a href="#">地政学</a></li>
-            <li><a href="#">経済・マーケット</a></li>
-            <li><a href="#">原油・資源価格</a></li>
-          </ul>
-
-          <h2>初心者向けメモ</h2>
-          <p class="sidebar-note">
-            この左側の箱は、あとで自由に変更できます。<br>
-            最初は「カテゴリ」「説明文」だけでOKです。
-          </p>
-        </aside>
-
-        <!-- 右カラム：記事カード一覧 -->
-        <div class="listing-main">
-          <div class="list-toolbar">
-            <p class="result-count">最新の記事 6件</p>
-            <div class="toolbar-actions">
-              <a href="index.html" class="small-button">トップへ戻る</a>
-            </div>
+    <section class="news-list-section">
+      <div class="container news-layout">
+        <aside class="news-sidebar">
+          <div class="sidebar-box">
+            <h2 class="sidebar-title">カテゴリ</h2>
+            <ul class="sidebar-menu">
+              <li><a href="#">すべて</a></li>
+              <li><a href="#">戦争・安全保障</a></li>
+              <li><a href="#">地政学</a></li>
+              <li><a href="#">経済</a></li>
+              <li><a href="#">エネルギー</a></li>
+            </ul>
           </div>
 
-          <div class="article-list">
-            <!-- 1件分のカード ここから -->
-            <article class="list-card">
-              <div class="list-card-image" style="background-image: url('./images/hero-bg.png');"></div>
-              <div class="list-card-body">
-                <p class="list-meta">2026.03.15 | 地政学 × 経済</p>
-                <h2><a href="article.html">中国経済が揺れている理由をやさしく解説</a></h2>
-                <p>
-                  景気の減速、不動産問題、消費の弱さが世界市場にどうつながるのかを、
-                  会話形式でやさしく整理します。
-                </p>
-                <div class="tag-row">
-                  <span class="tag">中国</span>
-                  <span class="tag">景気</span>
-                  <span class="tag">市場</span>
-                </div>
-                <a href="article.html" class="read-more-link">続きを読む →</a>
-              </div>
-            </article>
-            <!-- 1件分のカード ここまで -->
+          <div class="sidebar-box">
+            <h2 class="sidebar-title">初心者メモ</h2>
+            <p class="sidebar-text">
+              記事を増やすときは、右側のカードを1つコピーして、
+              タイトル・説明文・画像だけ差し替えればOKです。
+            </p>
+          </div>
+        </aside>
 
-            <article class="list-card">
-              <div class="list-card-image" style="background-image: url('./images/hero-bg.png');"></div>
-              <div class="list-card-body">
-                <p class="list-meta">2026.03.15 | 原油・資源</p>
-                <h2><a href="article.html">原油価格が上がると生活に何が起きる？</a></h2>
-                <p>
-                  ガソリン代だけではなく、輸送費や食品価格にも影響が出る流れを、
-                  短くわかりやすく説明します。
+        <div class="news-content">
+          <div class="section-heading-row">
+            <h2 class="section-title">新着記事</h2>
+            <p class="section-subtitle">まずは3〜6本くらい並べれば十分です</p>
+          </div>
+
+          <div class="news-grid-page">
+            <article class="news-card-page">
+              <img src="images/hero-bg.png" alt="ニュース画像" class="news-card-image-page">
+              <div class="news-card-body-page">
+                <p class="news-card-tag">地政学</p>
+                <h3 class="news-card-title-page">中国経済が揺れている理由</h3>
+                <p class="news-card-text-page">
+                  不動産・景気・雇用の流れを、会話形式でやさしく整理します。
                 </p>
-                <div class="tag-row">
-                  <span class="tag">原油</span>
-                  <span class="tag">物価</span>
-                  <span class="tag">生活</span>
-                </div>
-                <a href="article.html" class="read-more-link">続きを読む →</a>
+                <a href="article.html" class="news-card-link-page">続きを読む</a>
               </div>
             </article>
 
-            <article class="list-card">
-              <div class="list-card-image" style="background-image: url('./images/hero-bg.png');"></div>
-              <div class="list-card-body">
-                <p class="list-meta">2026.03.14 | 安全保障</p>
-                <h2><a href="article.html">紛争拡大で株価はどう動きやすいのか</a></h2>
-                <p>
-                  市場が不安を感じるとき、どんな資産にお金が流れやすいのかを、
-                  初心者向けに整理します。
+            <article class="news-card-page">
+              <img src="images/hero-bg.png" alt="ニュース画像" class="news-card-image-page">
+              <div class="news-card-body-page">
+                <p class="news-card-tag">エネルギー</p>
+                <h3 class="news-card-title-page">原油価格が上がると何が起きる？</h3>
+                <p class="news-card-text-page">
+                  原油高が家計や物流、物価にどうつながるかを解説します。
                 </p>
-                <div class="tag-row">
-                  <span class="tag">株価</span>
-                  <span class="tag">安全資産</span>
-                  <span class="tag">市場心理</span>
-                </div>
-                <a href="article.html" class="read-more-link">続きを読む →</a>
+                <a href="article.html" class="news-card-link-page">続きを読む</a>
               </div>
             </article>
 
-            <article class="list-card">
-              <div class="list-card-image" style="background-image: url('./images/hero-bg.png');"></div>
-              <div class="list-card-body">
-                <p class="list-meta">2026.03.14 | 地政学</p>
-                <h2><a href="article.html">海上輸送が止まると何が困る？</a></h2>
-                <p>
-                  物流ルートの混乱が、エネルギーや日用品にまで広がる理由を、
-                  会話形式で追います。
+            <article class="news-card-page">
+              <img src="images/hero-bg.png" alt="ニュース画像" class="news-card-image-page">
+              <div class="news-card-body-page">
+                <p class="news-card-tag">安全保障</p>
+                <h3 class="news-card-title-page">戦争が起きると経済はどう動く？</h3>
+                <p class="news-card-text-page">
+                  市場心理、資源、物流の3つの視点から基本をつかみます。
                 </p>
-                <div class="tag-row">
-                  <span class="tag">物流</span>
-                  <span class="tag">海運</span>
-                  <span class="tag">供給網</span>
-                </div>
-                <a href="article.html" class="read-more-link">続きを読む →</a>
+                <a href="article.html" class="news-card-link-page">続きを読む</a>
               </div>
             </article>
 
-            <article class="list-card">
-              <div class="list-card-image" style="background-image: url('./images/hero-bg.png');"></div>
-              <div class="list-card-body">
-                <p class="list-meta">2026.03.13 | 金融</p>
-                <h2><a href="article.html">金利が上がると景気に何が起きる？</a></h2>
-                <p>
-                  中央銀行の動きと、企業活動や株価の関係を、
-                  できるだけ専門用語を減らして説明します。
+            <article class="news-card-page news-card-page-template">
+              <img src="images/hero-bg.png" alt="ニュース画像" class="news-card-image-page">
+              <div class="news-card-body-page">
+                <p class="news-card-tag">テンプレート</p>
+                <h3 class="news-card-title-page">ここをコピーして記事を追加</h3>
+                <p class="news-card-text-page">
+                  このカードは見本です。タイトル、説明文、リンク先を変えれば追加できます。
                 </p>
-                <div class="tag-row">
-                  <span class="tag">金利</span>
-                  <span class="tag">中央銀行</span>
-                  <span class="tag">景気</span>
-                </div>
-                <a href="article.html" class="read-more-link">続きを読む →</a>
-              </div>
-            </article>
-
-            <article class="list-card">
-              <div class="list-card-image" style="background-image: url('./images/hero-bg.png');"></div>
-              <div class="list-card-body">
-                <p class="list-meta">2026.03.13 | テクノロジー × 安保</p>
-                <h2><a href="article.html">半導体不足が世界経済に与える影響</a></h2>
-                <p>
-                  半導体が不足すると、スマホだけでなく自動車や軍需まで影響を受ける理由を整理します。
-                </p>
-                <div class="tag-row">
-                  <span class="tag">半導体</span>
-                  <span class="tag">供給網</span>
-                  <span class="tag">産業</span>
-                </div>
-                <a href="article.html" class="read-more-link">続きを読む →</a>
+                <a href="article.html" class="news-card-link-page">続きを読む</a>
               </div>
             </article>
           </div>
@@ -186,8 +113,9 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
+    <div class="container footer-inner">
       <p>© WORLD NEWS TOUR</p>
+      <a href="index.html">トップへ戻る</a>
     </div>
   </footer>
 </body>
