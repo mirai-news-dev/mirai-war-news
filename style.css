@@ -1,309 +1,334 @@
 /* ========================================
-   全体
+   基本設定
 ======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
   background-color: #08101f;
   color: white;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 /* ========================================
-   ヒーロー
+   ヘッダー
 ======================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.site-logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.site-nav a {
+  margin-left: 20px;
+  opacity: 0.9;
+}
+
+.site-nav a:hover {
+  opacity: 1;
+}
+
+/* ========================================
+   HERO（トップ）
+======================================== */
+
 .hero {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
   background-image: url("./images/hero-bg.png");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
-/* 背景を少し暗くする */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(3, 10, 25, 0.08),
-    rgba(3, 10, 25, 0.24),
-    rgba(3, 10, 25, 0.66)
-  );
-  z-index: 1;
+  background: rgba(0, 0, 0, 0.55);
 }
 
-/* ========================================
-   タイトル
-======================================== */
-.hero-content {
+.hero-inner {
   position: relative;
-  z-index: 5;
-  text-align: center;
-  padding-top: clamp(28px, 4vw, 50px);
-  padding-left: 16px;
-  padding-right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 120px;
+}
+
+.hero-copy {
+  max-width: 500px;
 }
 
 .hero-title {
-  margin: 0;
-  font-size: clamp(38px, 6vw, 86px);
-  font-weight: 800;
-  letter-spacing: 2px;
-  line-height: 1.1;
-  text-shadow: 0 6px 22px rgba(0, 0, 0, 0.45);
+  font-size: 48px;
+  margin: 10px 0;
 }
 
 .hero-subtitle {
-  margin-top: 16px;
-  font-size: clamp(18px, 2.3vw, 30px);
-  font-weight: 700;
-  color: #f3f7ff;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  opacity: 0.8;
+}
+
+.hero-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 22px;
+  background: #0aa3ff;
+  border-radius: 6px;
 }
 
 /* ========================================
-   キャラの箱
+   吹き出し
 ======================================== */
-.character-group {
-  position: absolute;
-  z-index: 3;
-  bottom: 0;
+
+.speech {
+  background: white;
+  color: black;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin: 8px;
+  font-size: 14px;
 }
 
-.yui-group {
-  left: 0;
-  width: clamp(180px, 26vw, 360px);
-}
-
-.taka-group {
-  right: 0;
-  width: clamp(220px, 30vw, 430px);
+.speech-blue {
+  background: #0aa3ff;
+  color: white;
 }
 
 /* ========================================
    キャラクター
 ======================================== */
-.hero-yui,
-.hero-taka {
-  display: block;
+
+.hero-characters {
+  display: flex;
+  gap: 30px;
+}
+
+.character img {
+  width: 160px;
+}
+
+/* ========================================
+   セクション共通
+======================================== */
+
+.section {
+  padding: 80px 0;
+}
+
+/* ========================================
+   トップニュースカード
+======================================== */
+
+.section-news {
+  background: #0f1830;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.news-card {
+  background: #121c3a;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+}
+
+.news-card-image {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+}
+
+.news-card-body {
+  padding: 16px;
+}
+
+.news-card-category {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.news-card-more {
+  font-size: 13px;
+  color: #5bc0ff;
+}
+
+/* ========================================
+   ポイント（会話）
+======================================== */
+
+.points-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #121c3a;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.points-character img {
+  width: 120px;
+}
+
+/* ========================================
+   記事一覧ページ
+======================================== */
+
+.page-main {
+  padding-top: 100px;
+}
+
+.section-news-list {
+  padding: 100px 0 80px;
+}
+
+.page-title {
+  font-size: 40px;
+  margin: 10px 0 16px;
+}
+
+.page-text {
+  max-width: 760px;
+  opacity: 0.9;
+}
+
+/* ▼ 一覧カード */
+
+.news-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.news-list-card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: 0.3s;
+}
+
+.news-list-card:hover {
+  transform: translateY(-5px);
+}
+
+.news-list-image {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.news-list-body {
+  padding: 20px;
+}
+
+.news-list-category {
+  font-size: 13px;
+  color: #7fd3ff;
+}
+
+.news-list-body h2 {
+  font-size: 22px;
+}
+
+.news-list-body p {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.news-list-body a {
+  color: #66cfff;
+  font-weight: bold;
+}
+
+/* ========================================
+   記事ページ
+======================================== */
+
+.article-container {
+  max-width: 760px;
+}
+
+.article-title {
+  font-size: 34px;
+  margin: 10px 0 20px;
+}
+
+.article-lead {
+  opacity: 0.9;
+}
+
+.article-main-image {
   width: 100%;
-  height: auto;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.article-block {
+  margin: 40px 0;
+}
+
+.article-points {
+  padding-left: 20px;
+}
+
+.article-action-row {
+  margin-top: 40px;
+}
+
+.back-button {
+  background: #0aa3ff;
+  padding: 10px 16px;
+  border-radius: 6px;
 }
 
 /* ========================================
-   吹き出し共通
+   フッター
 ======================================== */
-.balloon {
-  position: absolute;
-  z-index: 6;
-  background: #fffdf4;
-  color: #1f2c44;
-  border-radius: 999px;
-  padding: clamp(10px, 1.2vw, 18px) clamp(16px, 1.8vw, 28px);
-  font-size: clamp(14px, 1.6vw, 24px);
-  font-weight: 700;
-  line-height: 1.4;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
-  white-space: nowrap;
-}
 
-/* 左の吹き出し（ユイ基準） */
-.balloon-left {
-  top: -10%;
-  left: 50%;
-}
-
-/* 右上の吹き出し（タカ基準） */
-.balloon-top {
-  top: 8%;
-  right: 30%;
-  background: #f7fbff;
-}
-
-/* 真ん中下の吹き出し */
-.balloon-bottom {
-  top: 55%;
-  left: 25%;
-  transform: translateX(-50%);
-}
-
-/* ========================================
-   ボタン
-======================================== */
-.hero-button {
-  position: absolute;
-  z-index: 6;
-  left: 50%;
-  top: clamp(460px, 62vh, 520px);
-  transform: translateX(-50%);
-  display: inline-block;
-  padding: clamp(14px, 1.5vw, 20px) clamp(24px, 3vw, 42px);
-  border-radius: 999px;
-  text-decoration: none;
-  color: white;
-  font-size: clamp(18px, 2vw, 28px);
-  font-weight: 700;
+.site-footer {
+  background: black;
+  padding: 30px 0;
   text-align: center;
-  background: linear-gradient(135deg, #35c9ff, #216cff);
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  box-shadow:
-    0 0 18px rgba(65, 193, 255, 0.55),
-    0 0 38px rgba(65, 193, 255, 0.35),
-    0 8px 30px rgba(0, 0, 0, 0.28);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    opacity 0.25s ease,
-    filter 0.25s ease;
-}
-
-.hero-button:hover {
-  transform: translateX(-50%) scale(1.06);
-  box-shadow:
-    0 0 24px rgba(65, 193, 255, 0.8),
-    0 0 52px rgba(65, 193, 255, 0.6),
-    0 12px 36px rgba(0, 0, 0, 0.34);
-  opacity: 0.88;
-  filter: brightness(1.08);
-}
-
-/* ========================================
-   下矢印
-======================================== */
-.hero-arrow {
-  position: absolute;
-  z-index: 6;
-  left: 50%;
-  top: clamp(550px, 74vh, 620px);
-  transform: translateX(-50%);
-  font-size: clamp(28px, 3vw, 42px);
-  color: #d7eeff;
-  text-shadow: 0 0 18px rgba(73, 196, 255, 0.8);
-}
-
-/* ========================================
-   次のセクション
-======================================== */
-.dummy-news {
-  padding: 60px 20px;
-  background: #07111f;
-}
-
-.dummy-news h2 {
-  margin: 0;
-  font-size: 36px;
-}
-
-/* ========================================
-   タブレット
-======================================== */
-@media (max-width: 1024px) {
-  .hero {
-    min-height: 860px;
-  }
-
-  .yui-group {
-    width: 300px;
-  }
-
-  .taka-group {
-    width: 350px;
-  }
-}
-
-/* ========================================
-   スマホ
-======================================== */
-@media (max-width: 768px) {
-  .hero {
-    min-height: 820px;
-    background-position: center top;
-  }
-
-  .hero-content {
-    padding-top: 20px;
-  }
-
-  .hero-title {
-    font-size: 38px;
-    line-height: 1.05;
-    padding: 0 12px;
-  }
-
-  .hero-subtitle {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-top: 16px;
-    padding: 0 16px;
-  }
-
-  .yui-group {
-    width: 150px;
-    left: -20px;
-    bottom: 0;
-  }
-
-  .taka-group {
-    width: 175px;
-    right: -18px;
-    bottom: 0;
-  }
-
-  .balloon {
-    font-size: 14px;
-    padding: 12px 16px;
-    border-radius: 24px;
-    max-width: none;
-    white-space: nowrap;
-    line-height: 1.5;
-  }
-
-  .balloon-left {
-    top: auto;
-    bottom: 92px;
-    left: 92px;
-  }
-
-  .balloon-top {
-    top: auto;
-    bottom: 95px;
-    right: 72px;
-  }
-
-  .balloon-bottom {
-    top: 250px;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: none;
-    white-space: nowrap;
-  }
-
-  .hero-button {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    display: block;
-    width: 85%;
-    max-width: 300px;
-    margin: 250px auto 120px auto;
-    padding: 14px 18px;
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .hero-button:hover {
-    transform: none;
-  }
-
-  .hero-arrow {
-    position: absolute;
-    left: 50%;
-    top: auto;
-    bottom: 78px;
-    transform: translateX(-50%);
-    font-size: 28px;
-  }
+  margin-top: 80px;
 }
