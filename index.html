@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WORLD NEWS TOUR</title>
 
-  <!-- キャッシュ対策付き -->
-  <link rel="stylesheet" href="style.css?v=2" />
+  <!-- キャッシュ対策 -->
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 
 <body>
 
+<!-- ========================
+  ヘッダー
+  ※右上ログインここ
+======================== -->
 <header class="header">
   <div class="container header-inner">
 
@@ -32,53 +36,70 @@
   </div>
 </header>
 
+<!-- ========================
+  ヒーロー（最重要）
+======================== -->
 <section class="hero">
-  <div class="hero-inner container">
 
-    <div class="hero-text">
-      <h1>世界ニュースを<br>やさしく理解する</h1>
-      <p>難しい世界の話を、物語で。</p>
-      <a class="main-btn">ニュースを見る</a>
-    </div>
-
-    <div class="hero-img boy"></div>
-    <div class="hero-img girl"></div>
-
-    <div class="bubble left">
-      最近ニュース難しいよね…
-    </div>
-
-    <div class="bubble right">
-      実は全部つながってるんだ
-    </div>
-
+  <!-- タイトル -->
+  <div class="hero-title">
+    WORLD NEWS TOUR
+    <span>世界の出来事をやさしく理解する</span>
   </div>
+
+  <!-- キャラ -->
+  <div class="character boy"></div>
+  <div class="character girl"></div>
+
+  <!-- 吹き出し -->
+  <div class="bubble bubble-left">
+    最近ニュースが難しいね
+  </div>
+
+  <div class="bubble bubble-center">
+    実は全部つながってるんだ
+  </div>
+
+  <div class="bubble bubble-right">
+    え？どういうこと？
+  </div>
+
+  <!-- ボタン -->
+  <div class="hero-btn">
+    世界のニュースを見る →
+  </div>
+
 </section>
 
-<section class="news container">
-  <h2>今日のニュース</h2>
+<!-- ========================
+  今日のニュース
+======================== -->
+<section class="news">
 
-  <div class="cards">
+  <h2>🔥 今日のニュース</h2>
 
-    <div class="card">
-      <div class="img"></div>
+  <div class="news-cards">
+
+    <div class="news-card">
+      <div class="news-img"></div>
+      <h3>中国経済が崩れている理由</h3>
+      <p>不動産が原因なんだ</p>
+    </div>
+
+    <div class="news-card">
+      <div class="news-img"></div>
       <h3>原油価格が上昇</h3>
-      <p>ガソリンに影響する？</p>
+      <p>ガソリン高くなる？</p>
     </div>
 
-    <div class="card">
-      <div class="img"></div>
-      <h3>中国経済の減速</h3>
-      <p>日本企業に影響</p>
-    </div>
-
-    <div class="card">
-      <div class="img"></div>
+    <div class="news-card">
+      <div class="news-img"></div>
       <h3>戦争リスク</h3>
-      <p>物価に波及</p>
+      <p>日本に影響</p>
     </div>
 
   </div>
+
 </section>
 
 </body>
