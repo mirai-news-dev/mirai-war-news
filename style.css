@@ -332,3 +332,52 @@ a {
   text-align: center;
   margin-top: 80px;
 }
+/* ========================================
+   ▼ ログイン（準備中）
+======================================== */
+
+.login-section{
+  margin-top: 60px;
+  padding: 40px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.login-description{
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+/* ▼ 入力ボックス */
+.login-box{
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ▼ input */
+.login-box input{
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+}
+
+/* ▼ ボタン */
+.login-box button{
+  padding: 12px;
+  background: #555;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: not-allowed; /* 押せない見た目 */
+  opacity: 0.7;
+}
+
+/* ▼ 注意文 */
+.login-note{
+  font-size: 12px;
+  opacity: 0.6;
+}
