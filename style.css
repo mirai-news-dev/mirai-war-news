@@ -1,147 +1,133 @@
-/* ========================================
-   リセットCSS（必須）
-======================================== */
-*,
-*::before,
-*::after {
+/* =====================
+   リセット
+===================== */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-li,
-dl,
-dt,
-dd,
-figure,
-blockquote {
-  margin: 0;
-  padding: 0;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
 body {
-  min-height: 100vh;
+  background: #0a1124;
+  color: white;
+  font-family: sans-serif;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+/* =====================
+   共通
+===================== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* =====================
+   ヘッダー
+===================== */
+.header {
+  padding: 20px 0;
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-button {
-  border: none;
-  background: none;
-  cursor: pointer;
+.nav a {
+  margin: 0 10px;
 }
 
-table {
-  border-collapse: collapse;
+.auth .btn {
+  background: #4cc9f0;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
-/* ========================================
-   リセットCSS
-   ・ブラウザごとの差を減らす
-   ・今後ページを増やしても崩れにくくする
-======================================== */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* =====================
+   ヒーロー
+===================== */
+.hero {
+  position: relative;
+  height: 600px;
+  background: url("./images/hero-bg.png") center/cover;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
+.hero-text {
+  padding-top: 150px;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-li,
-dl,
-dt,
-dd,
-figure,
-blockquote {
-  margin: 0;
-  padding: 0;
+.hero h1 {
+  font-size: 40px;
 }
 
-ul,
-ol {
-  list-style: none;
+.main-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #4cc9f0;
+  padding: 10px 20px;
 }
 
-body {
-  min-height: 100vh;
-  text-rendering: optimizeLegibility;
+/* キャラ */
+.hero-img {
+  position: absolute;
+  bottom: 0;
+  width: 300px;
+  height: 400px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-img,
-picture {
-  display: block;
-  max-width: 100%;
-  height: auto;
+.boy {
+  right: 0;
+  background-image: url("./images/taka.png");
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.girl {
+  left: 0;
+  background-image: url("./images/yui.png");
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
+/* 吹き出し */
+.bubble {
+  position: absolute;
+  background: white;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-button {
-  border: none;
-  background: none;
-  padding: 0;
-  cursor: pointer;
+.left {
+  left: 100px;
+  top: 100px;
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+.right {
+  right: 100px;
+  top: 80px;
+}
+
+/* =====================
+   ニュース
+===================== */
+.news {
+  padding: 50px 0;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  background: #111a33;
+  padding: 20px;
+  flex: 1;
+}
+
+.img {
+  height: 120px;
+  background: #333;
+  margin-bottom: 10px;
 }
