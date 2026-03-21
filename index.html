@@ -3,322 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WORLD NEWS TOUR | 世界の出来事をやさしく理解する</title>
-  <meta
-    name="description"
-    content="世界の戦争・経済・災害ニュースを、日本への影響という視点でやさしく解説するサイト。会話形式で、表と裏をわかりやすく読む。"
-  />
-  <link rel="stylesheet" href="style.css" />
+  <title>WORLD NEWS TOUR</title>
+
+  <!-- キャッシュ対策付き -->
+  <link rel="stylesheet" href="style.css?v=2" />
 </head>
+
 <body>
 
-  <!-- =========================
-       ヘッダー
-       ・左：ロゴ / サイト名
-       ・中央：ナビ
-       ・右：ログイン導線
-       ※ ログイン機能は将来実装予定
-  ========================== -->
-  <header class="site-header">
-    <div class="container header-inner">
+<header class="header">
+  <div class="container header-inner">
 
-      <!-- ロゴエリア -->
-      <div class="site-brand">
-        <a href="index.html" class="brand-link">
-          <span class="brand-mark">WN</span>
-          <div class="brand-text">
-            <span class="brand-title">WORLD NEWS TOUR</span>
-            <span class="brand-subtitle">世界の出来事をやさしく理解する</span>
-          </div>
-        </a>
-      </div>
-
-      <!-- メインナビ -->
-      <nav class="main-nav" aria-label="メインナビゲーション">
-        <ul class="nav-list">
-          <li><a href="index.html">ホーム</a></li>
-          <li><a href="news.html">ニュース</a></li>
-          <li><a href="history.html">年歴</a></li>
-          <li><a href="article.html">特集記事</a></li>
-        </ul>
-      </nav>
-
-      <!-- 右上ログイン導線 -->
-      <div class="header-actions">
-        <a href="login.html" class="login-link">ログイン</a>
-        <a href="login.html" class="register-button">会員登録</a>
-      </div>
+    <div class="logo">
+      WORLD NEWS TOUR
     </div>
-  </header>
 
-  <main>
+    <nav class="nav">
+      <a href="#">ホーム</a>
+      <a href="#">ニュース</a>
+      <a href="#">年歴</a>
+    </nav>
 
-    <!-- =========================
-         ヒーローエリア
-         ・世界観を伝える最重要ブロック
-         ・背景画像はCSS側で設定
-         ・キャラ会話で「楽しく理解できるサイト」と伝える
-    ========================== -->
-    <section class="hero">
-      <div class="hero-overlay"></div>
-
-      <div class="container hero-inner">
-        <!-- 左側：メインコピー -->
-        <div class="hero-content">
-          <p class="hero-label">WORLD × STORY × JAPAN</p>
-          <h1 class="hero-title">
-            世界ニュースの<br />
-            表と裏を、やさしく読む
-          </h1>
-          <p class="hero-description">
-            戦争、経済、災害、資源問題――<br />
-            世界で起きている出来事を、<strong>日本への影響</strong>という視点で、
-            初心者でもわかるように会話形式で解説します。
-          </p>
-
-          <!-- ヒーロー内ボタン -->
-          <div class="hero-buttons">
-            <a href="news.html" class="primary-button">今日のニュースを見る</a>
-            <a href="history.html" class="secondary-button">年歴で流れを見る</a>
-          </div>
-        </div>
-
-        <!-- 右側：キャラ会話 -->
-        <div class="hero-characters">
-          <div class="character-card character-girl">
-            <div class="character-avatar">女</div>
-            <div class="speech-bubble left-bubble">
-              最近のニュース、難しくてよくわからない…<br />
-              でも日本に関係あるって聞くと気になるな。
-            </div>
-          </div>
-
-          <div class="character-card character-boy">
-            <div class="character-avatar">男</div>
-            <div class="speech-bubble right-bubble">
-              大丈夫。ニュースは点で見ると難しいけど、<br />
-              <strong>背景・利害・日本への影響</strong>までつなげると、
-              ちゃんと見えてくるよ。
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         今日のニュース
-         ・トップページ用の入口カード3つ
-         ・あとで実データに差し替えしやすい構造
-    ========================== -->
-    <section class="top-news section-space">
-      <div class="container">
-        <div class="section-heading">
-          <p class="section-subtitle">TODAY'S NEWS</p>
-          <h2 class="section-title">今日のニュース</h2>
-          <p class="section-text">
-            まずは、今見ておきたい話題を3つだけ。<br />
-            難しいニュースも、入口からなら読みやすくなります。
-          </p>
-        </div>
-
-        <div class="news-card-grid">
-          <!-- ニュースカード1 -->
-          <article class="news-card">
-            <div class="news-card-image placeholder-image">
-              画像エリア
-            </div>
-            <div class="news-card-body">
-              <p class="news-category">戦争・地政学</p>
-              <h3 class="news-card-title">
-                中東情勢の緊張で原油価格はどう動く？
-              </h3>
-              <p class="news-card-text">
-                表向きは軍事衝突のニュースでも、裏では輸送ルート、
-                産油国の思惑、投資マネーまで動いています。
-              </p>
-              <p class="news-impact">
-                <strong>日本への影響：</strong>
-                ガソリン代、物流コスト、食品価格に波及しやすい。
-              </p>
-              <a href="article.html" class="card-link">続きを読む</a>
-            </div>
-          </article>
-
-          <!-- ニュースカード2 -->
-          <article class="news-card">
-            <div class="news-card-image placeholder-image">
-              画像エリア
-            </div>
-            <div class="news-card-body">
-              <p class="news-category">経済</p>
-              <h3 class="news-card-title">
-                中国経済の減速は日本企業にどう響く？
-              </h3>
-              <p class="news-card-text">
-                中国の景気悪化は、輸出、工場、生産網、観光まで幅広く影響します。
-                一見遠い話でも、実は日本企業の売上に直結します。
-              </p>
-              <p class="news-impact">
-                <strong>日本への影響：</strong>
-                輸出企業、製造業、雇用、株価に影響が出る可能性。
-              </p>
-              <a href="article.html" class="card-link">続きを読む</a>
-            </div>
-          </article>
-
-          <!-- ニュースカード3 -->
-          <article class="news-card">
-            <div class="news-card-image placeholder-image">
-              画像エリア
-            </div>
-            <div class="news-card-body">
-              <p class="news-category">災害・供給網</p>
-              <h3 class="news-card-title">
-                大規模災害が起きると、なぜ物価まで上がるの？
-              </h3>
-              <p class="news-card-text">
-                災害は現地だけの問題ではなく、港・物流・保険・部品調達を通じて
-                世界全体に広がります。
-              </p>
-              <p class="news-impact">
-                <strong>日本への影響：</strong>
-                輸入コスト上昇、部品不足、生活必需品の値上がり。
-              </p>
-              <a href="article.html" class="card-link">続きを読む</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         ポイント解説
-         ・このサイトの読み方を伝える
-         ・会話形式で親しみやすくする
-    ========================== -->
-    <section class="point-guide section-space">
-      <div class="container">
-        <div class="section-heading">
-          <p class="section-subtitle">HOW TO READ</p>
-          <h2 class="section-title">このサイトでわかること</h2>
-        </div>
-
-        <div class="point-layout">
-          <!-- 左：会話 -->
-          <div class="point-conversation">
-            <div class="mini-talk">
-              <div class="mini-icon">女</div>
-              <div class="mini-bubble">
-                ニュースって、出来事だけ見てもピンとこないんだよね…
-              </div>
-            </div>
-
-            <div class="mini-talk reverse">
-              <div class="mini-icon">男</div>
-              <div class="mini-bubble">
-                だからこのサイトでは、<strong>3つの視点</strong>で整理するよ。
-              </div>
-            </div>
-          </div>
-
-          <!-- 右：ポイント3つ -->
-          <div class="point-cards">
-            <div class="point-card">
-              <span class="point-number">01</span>
-              <h3>何が起きたか</h3>
-              <p>
-                まずは出来事を短く整理。初心者でも「今どこで何が起きたか」がわかるようにします。
-              </p>
-            </div>
-
-            <div class="point-card">
-              <span class="point-number">02</span>
-              <h3>裏で何が動いているか</h3>
-              <p>
-                表向きのニュースだけでなく、資源、政治、企業、投資家の思惑など、
-                見えにくい背景もやさしく整理します。
-              </p>
-            </div>
-
-            <div class="point-card">
-              <span class="point-number">03</span>
-              <h3>日本にどう影響するか</h3>
-              <p>
-                世界の出来事を、物価、給料、株価、エネルギー、暮らしの変化につなげて解説します。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         年歴ページ導線
-         ・単発ニュースではなく流れで理解させるための入口
-    ========================== -->
-    <section class="history-lead section-space">
-      <div class="container">
-        <div class="history-box">
-          <div class="history-text">
-            <p class="section-subtitle">TIMELINE / 年歴</p>
-            <h2 class="section-title">ニュースは「流れ」で見るとわかりやすい</h2>
-            <p class="section-text">
-              ある日突然、物価や株価が動くわけではありません。<br />
-              戦争、外交、資源、金融政策――それぞれの出来事には前後の流れがあります。<br />
-              年歴ページでは、重要ニュースを時系列で追えるようにします。
-            </p>
-          </div>
-
-          <div class="history-action">
-            <a href="history.html" class="primary-button">年歴ページを見る</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         会員機能の予告
-         ・今は準備中
-         ・将来の開発を見せるためのUI
-    ========================== -->
-    <section class="member-preview section-space">
-      <div class="container">
-        <div class="member-box">
-          <p class="section-subtitle">MEMBER</p>
-          <h2 class="section-title">会員機能は今後追加予定</h2>
-          <p class="section-text">
-            お気に入り保存、あとで読む、特集まとめなどの機能は今後開発予定です。<br />
-            現在はログイン画面のみ準備中です。
-          </p>
-          <a href="login.html" class="secondary-button">ログイン画面を見る</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- =========================
-       フッター
-       ・最低限のリンクと説明
-  ========================== -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <h2>WORLD NEWS TOUR</h2>
-        <p>
-          世界の戦争・経済・災害ニュースを、<br />
-          日本への影響という視点でやさしく解説するサイト。
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <a href="index.html">ホーム</a>
-        <a href="news.html">ニュース</a>
-        <a href="history.html">年歴</a>
-        <a href="login.html">ログイン</a>
-      </div>
+    <div class="auth">
+      <a href="#">ログイン</a>
+      <a href="#" class="btn">登録</a>
     </div>
-  </footer>
+
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner container">
+
+    <div class="hero-text">
+      <h1>世界ニュースを<br>やさしく理解する</h1>
+      <p>難しい世界の話を、物語で。</p>
+      <a class="main-btn">ニュースを見る</a>
+    </div>
+
+    <div class="hero-img boy"></div>
+    <div class="hero-img girl"></div>
+
+    <div class="bubble left">
+      最近ニュース難しいよね…
+    </div>
+
+    <div class="bubble right">
+      実は全部つながってるんだ
+    </div>
+
+  </div>
+</section>
+
+<section class="news container">
+  <h2>今日のニュース</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="img"></div>
+      <h3>原油価格が上昇</h3>
+      <p>ガソリンに影響する？</p>
+    </div>
+
+    <div class="card">
+      <div class="img"></div>
+      <h3>中国経済の減速</h3>
+      <p>日本企業に影響</p>
+    </div>
+
+    <div class="card">
+      <div class="img"></div>
+      <h3>戦争リスク</h3>
+      <p>物価に波及</p>
+    </div>
+
+  </div>
+</section>
 
 </body>
 </html>
