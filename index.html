@@ -7,24 +7,21 @@
   <meta name="description" content="世界の出来事をやさしく理解するニュース解説サイト" />
 
   <!--
-    CSS読み込み
-    ・style.css を読み込みます
-    ・?v= はキャッシュ対策です
-    ・反映されない時は数字や文字を変えると更新されやすいです
+    CSSファイルを読み込みます
+    ?v= はキャッシュ対策です
+    更新後に反映されない時はこの文字を変えてください
   -->
-  <link rel="stylesheet" href="style.css?v=20260322b" />
+  <link rel="stylesheet" href="style.css?v=20260322d" />
 </head>
 <body>
-  <!-- ========================================
-       ページ全体ラッパー
-       ・下側の背景 hero-bottom.png を全体に敷くための箱
-       ・ヒーロー以外にも同じ世界観の背景が続くようにする
-  ======================================== -->
+  <!--
+    ページ全体の背景
+    hero-bottom.png を全体に敷いて、
+    ヒーローの下と自然につながるようにします
+  -->
   <div class="page-bg">
     <!-- ========================================
          ヘッダー
-         ・今は見た目用
-         ・あとでリンク先だけ変えれば使えます
     ======================================== -->
     <header class="site-header">
       <div class="header-inner container">
@@ -48,36 +45,42 @@
     <main>
       <!-- ========================================
            ヒーロー
-           ・高さは 900px 固定
-           ・上背景 hero-top.png を使う
-           ・キャラクターはこの中だけに見せる
+           ・トップ画像は img で表示
+           ・切れないようにする
       ======================================== -->
       <section class="hero">
         <!--
-          上側背景
-          ・世界地図＋キャラクター用
-          ・ヒーロー部分だけに表示する
+          トップ画像
+          ・background ではなく img を使う
+          ・これでキャラが切れにくくなる
         -->
-        <div class="hero-top-bg"></div>
+        <img
+          src="./images/hero-top.png"
+          alt="世界地図とキャラクターのヒーロー画像"
+          class="hero-image"
+        />
 
         <!--
-          暗めの重ねレイヤー
-          ・文字を読みやすくするために薄く重ねる
+          文字を見やすくするための薄い暗幕
         -->
         <div class="hero-overlay"></div>
 
+        <!--
+          下の背景へ自然につなぐためのグラデーション
+          ・hero-bottom.png と切れ目が目立たないようにする
+        -->
+        <div class="hero-fade"></div>
+
+        <!--
+          ヒーロー上に載せる文字やボタン
+        -->
         <div class="hero-content container">
-          <!-- タイトル -->
           <div class="hero-copy">
             <h1 class="hero-title">WORLD NEWS TOUR</h1>
             <p class="hero-subtitle">世界の出来事をやさしく理解する</p>
           </div>
 
-          <!--
-            吹き出し
-            ・今は位置だけ用意
-            ・あとでCSSで調整や追加しやすい構造
-          -->
+          <!-- 吹き出し -->
           <div class="speech speech-left">最近ニュースって<br>むずかしいね</div>
           <div class="speech speech-top">実は全部つながってるんだ</div>
           <div class="speech speech-center">え？どういうこと？</div>
@@ -92,9 +95,6 @@
 
       <!-- ========================================
            今日のニュース
-           ・背景は page-bg 側で hero-bottom.png を全体表示
-           ・カード画像は background-image で表示
-           ・文字は上に重ねる
       ======================================== -->
       <section class="today-news section-block">
         <div class="container news-wrap">
@@ -104,7 +104,7 @@
           </div>
 
           <div class="news-grid">
-            <!-- 左上：大カード -->
+            <!-- 左上 -->
             <article class="news-card news-card-main news-card-main-top">
               <div class="news-card-overlay news-card-overlay-dark"></div>
               <div class="news-card-text news-card-text-left">
@@ -114,7 +114,7 @@
               </div>
             </article>
 
-            <!-- 右上：小カード -->
+            <!-- 右上 -->
             <article class="news-card news-card-side news-card-side-top">
               <div class="news-card-overlay news-card-overlay-soft"></div>
               <div class="news-card-text news-card-text-bottom-left">
@@ -124,7 +124,7 @@
               </div>
             </article>
 
-            <!-- 左下：大カード -->
+            <!-- 左下 -->
             <article class="news-card news-card-main news-card-main-bottom">
               <div class="news-card-overlay news-card-overlay-dark"></div>
               <div class="news-card-text news-card-text-center-right">
@@ -134,7 +134,7 @@
               </div>
             </article>
 
-            <!-- 右下：小カード -->
+            <!-- 右下 -->
             <article class="news-card news-card-side news-card-side-bottom">
               <div class="news-card-overlay news-card-overlay-soft"></div>
               <div class="news-card-text news-card-text-bottom-left">
@@ -149,8 +149,6 @@
 
       <!-- ========================================
            今日のポイント
-           ・point-card-1.png を背景に使う
-           ・文字は上に重ねる
       ======================================== -->
       <section class="today-point section-block section-block-last">
         <div class="container">
