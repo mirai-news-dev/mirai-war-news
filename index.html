@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WORLD NEWS TOUR</title>
   <meta name="description" content="世界の出来事をやさしく理解するニュース解説サイト" />
-  <link rel="stylesheet" href="style.css?v=20260322b" />
+  <link rel="stylesheet" href="style.css?v=20260322c" />
 </head>
 <body>
+
   <!-- ========================================
        ヘッダー
        ・今は見た目だけ
@@ -33,28 +34,26 @@
     </div>
   </header>
 
-  <main>
+  <main class="page-main">
+
     <!-- ========================================
          ヒーロー
-         ・背景画像そのものは body 全体背景で表示
-         ・ここでは暗さや光の重なりだけ調整
-         ・文字は画像に埋め込まず、HTML/CSSで重ねる
+         ・上背景は hero-top.png
+         ・タイトル、吹き出し、ボタンは画像に埋め込まない
+         ・あとで文言や位置を調整しやすい構造
     ======================================== -->
     <section class="hero">
       <div class="hero-bg"></div>
       <div class="hero-overlay"></div>
 
       <div class="hero-content container">
-        <!-- タイトル周り -->
+        <!-- タイトル -->
         <div class="hero-copy">
           <h1 class="hero-title">WORLD NEWS TOUR</h1>
           <p class="hero-subtitle">世界の出来事をやさしく理解する</p>
         </div>
 
-        <!-- 吹き出し
-             ・あとで文言だけ変える場所
-             ・位置は見本の見た目に合わせて固定
-        -->
+        <!-- 吹き出し -->
         <div class="speech speech-left">最近ニュースが<br>厳かしいね</div>
         <div class="speech speech-top">実は全部つながってるんだ</div>
         <div class="speech speech-center">え？どういうこと？</div>
@@ -68,85 +67,89 @@
     </section>
 
     <!-- ========================================
-         今日のニュース
-         ・カード画像を背景として使う
-         ・文字は全部HTML/CSSで重ねる
-         ・横幅を見本より広めに調整
+         下背景エリア
+         ・ hero-btom.png を下全体の背景として使う
+         ・ 今日のニュースから下はこの背景の上に載せる
     ======================================== -->
-    <section class="today-news section-block">
-      <div class="news-wrap">
-        <div class="section-head section-head-row">
-          <h2 class="section-title"><span class="section-icon fire">🔥</span>今日のニュース</h2>
-          <a href="news.html" class="section-more">新着記事</a>
+    <div class="bottom-area">
+
+      <!-- ========================================
+           今日のニュース
+      ======================================== -->
+      <section class="today-news section-block">
+        <div class="news-wrap">
+          <div class="section-head section-head-row">
+            <h2 class="section-title"><span class="section-icon fire">🔥</span>今日のニュース</h2>
+            <a href="news.html" class="section-more">新着記事</a>
+          </div>
+
+          <div class="news-grid">
+            <!-- 左上の大カード -->
+            <article class="news-card news-card-main news-card-china">
+              <div class="news-card-overlay news-card-overlay-dark"></div>
+              <div class="news-card-text news-card-text-left">
+                <h3 class="news-title news-title-yellow">中国経済が壊れている理由</h3>
+                <p class="news-bubble news-bubble-small">不動産が原因なんだ</p>
+                <a href="article.html" class="read-link">続きを読む <span>›</span></a>
+              </div>
+            </article>
+
+            <!-- 右上の小カード -->
+            <article class="news-card news-card-side news-card-oil-top">
+              <div class="news-card-overlay news-card-overlay-soft"></div>
+              <div class="news-card-text news-card-text-bottom-left">
+                <h3 class="news-title">原油価格が上昇</h3>
+                <p class="news-bubble news-bubble-small">ガソリン高くなる？</p>
+                <a href="article.html" class="read-link">続きを読む <span>›</span></a>
+              </div>
+            </article>
+
+            <!-- 左下の横カード -->
+            <article class="news-card news-card-main news-card-war">
+              <div class="news-card-overlay news-card-overlay-dark"></div>
+              <div class="news-card-text news-card-text-center-right">
+                <h3 class="news-title">原油価格が上昇</h3>
+                <p class="news-bubble news-bubble-small">ガソリン高くなる？</p>
+                <a href="article.html" class="read-link">続きを読む <span>›</span></a>
+              </div>
+            </article>
+
+            <!-- 右下の小カード -->
+            <article class="news-card news-card-side news-card-oil-girl">
+              <div class="news-card-overlay news-card-overlay-soft"></div>
+              <div class="news-card-text news-card-text-bottom-left text-right-card">
+                <h3 class="news-title">原油価格が上昇</h3>
+                <p class="news-bubble news-bubble-small">ガソリン高くなる？</p>
+                <a href="article.html" class="read-link">続きを読む <span>›</span></a>
+              </div>
+            </article>
+          </div>
         </div>
+      </section>
 
-        <div class="news-grid">
-          <!-- 左上の大カード -->
-          <article class="news-card news-card-main news-card-china">
-            <div class="news-card-overlay news-card-overlay-dark"></div>
-            <div class="news-card-text news-card-text-left">
-              <h3 class="news-title news-title-yellow">中国経済が壊れている理由</h3>
-              <p class="news-bubble news-bubble-small">不動産が原因なんだ</p>
-              <a href="article.html" class="read-link">続きを読む <span>›</span></a>
-            </div>
-          </article>
+      <!-- ========================================
+           今日のポイント
+      ======================================== -->
+      <section class="today-point section-block section-block-last">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title"><span class="section-icon talk">💬</span>今日のポイント</h2>
+          </div>
 
-          <!-- 右上の小カード -->
-          <article class="news-card news-card-side news-card-oil-top">
-            <div class="news-card-overlay news-card-overlay-soft"></div>
-            <div class="news-card-text news-card-text-bottom-left">
-              <h3 class="news-title">原油価格が上昇</h3>
-              <p class="news-bubble news-bubble-small">ガソリン高くなる？</p>
-              <a href="article.html" class="read-link">続きを読む <span>›</span></a>
-            </div>
-          </article>
+          <div class="point-card">
+            <div class="point-bg"></div>
+            <div class="point-overlay"></div>
 
-          <!-- 左下の横カード -->
-          <article class="news-card news-card-main news-card-war">
-            <div class="news-card-overlay news-card-overlay-dark"></div>
-            <div class="news-card-text news-card-text-center-right">
-              <h3 class="news-title">原油価格が上昇</h3>
-              <p class="news-bubble news-bubble-small">ガソリン高くなる？</p>
-              <a href="article.html" class="read-link">続きを読む <span>›</span></a>
-            </div>
-          </article>
+            <div class="point-bubble point-bubble-left">つまり戦争が近きると</div>
+            <div class="point-bubble point-bubble-top-right">エネルギー飢希変、</div>
+            <div class="point-bubble point-bubble-bottom-right">エネルギーが刈く</div>
 
-          <!-- 右下の小カード -->
-          <article class="news-card news-card-side news-card-oil-girl">
-            <div class="news-card-overlay news-card-overlay-soft"></div>
-            <div class="news-card-text news-card-text-bottom-left text-right-card">
-              <h3 class="news-title">原油価格が上昇</h3>
-              <p class="news-bubble news-bubble-small">ガソリン高くなる？</p>
-              <a href="article.html" class="read-link">続きを読む <span>›</span></a>
-            </div>
-          </article>
+            <a href="article.html" class="point-link">続きを読む <span>›</span></a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ========================================
-         今日のポイント
-         ・ point-card-1.png を背景で使う
-         ・吹き出しはHTML/CSSで重ねる
-    ======================================== -->
-    <section class="today-point section-block section-block-last">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title"><span class="section-icon talk">💬</span>今日のポイント</h2>
-        </div>
-
-        <div class="point-card">
-          <div class="point-bg"></div>
-          <div class="point-overlay"></div>
-
-          <div class="point-bubble point-bubble-left">つまり戦争が近きると</div>
-          <div class="point-bubble point-bubble-top-right">エネルギー飢希変、</div>
-          <div class="point-bubble point-bubble-bottom-right">エネルギーが刈く</div>
-
-          <a href="article.html" class="point-link">続きを読む <span>›</span></a>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 </body>
 </html>
