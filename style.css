@@ -37,20 +37,13 @@ a {
 
 /* ========================================
    body全体
-   ・hero-bg.png をページ全体背景として使う
-   ・スクロールしても世界観が続くようにする
+   ・背景画像は分割したので body はシンプルにする
 ======================================== */
 body {
   min-height: 100vh;
   font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
   color: #ffffff;
-  background-image:
-    linear-gradient(180deg, rgba(4, 10, 24, 0.16) 0%, rgba(4, 10, 24, 0.30) 100%),
-    url("./images/hero-bg.png");
-  background-repeat: no-repeat, no-repeat;
-  background-size: cover, cover;
-  background-position: center top, center top;
-  background-color: #07101f;
+  background-color: #060d1d;
 }
 
 /* ========================================
@@ -62,17 +55,16 @@ body {
 }
 
 .section-block {
-  margin-top: -24px;
+  margin-top: 0;
 }
 
 .section-block-last {
-  padding-bottom: 48px;
+  padding-bottom: 56px;
 }
 
 /* ========================================
    ヘッダー
-   ・元画像には見えていないが、実サイト用に上へ薄く配置
-   ・邪魔しないよう透明感強め
+   ・上に薄く置く
 ======================================== */
 .site-header {
   position: absolute;
@@ -124,45 +116,42 @@ body {
 
 /* ========================================
    ヒーロー
-   ・背景そのものは body に移した
-   ・ここではヒーロー領域の見え方だけ調整する
+   ・上背景だけ使う
 ======================================== */
 .hero {
   position: relative;
-  min-height: 975px;
+  height: 920px;
   overflow: hidden;
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
-
-  /* ヒーロー専用の明るさ・光だけ重ねる */
-  background:
-    radial-gradient(circle at center, rgba(56, 124, 255, 0.10), transparent 45%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(7, 14, 28, 0.08) 100%);
+  background-image: url("./images/hero-top.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(3, 9, 22, 0.08) 38%, rgba(5, 11, 27, 0.18) 64%, rgba(5, 11, 27, 0.22) 100%);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(3, 9, 22, 0.06) 35%, rgba(5, 11, 27, 0.10) 65%, rgba(5, 11, 27, 0.14) 100%);
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  min-height: 975px;
+  height: 920px;
 }
 
-/* タイトル位置
-   ・元画像の中央上に配置
-   ・文字だけ後で修正しやすいようHTMLで置く
-*/
+/* ========================================
+   タイトル
+======================================== */
 .hero-copy {
   position: absolute;
-  top: 102px;
+  top: 84px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -170,7 +159,7 @@ body {
 }
 
 .hero-title {
-  font-size: clamp(54px, 7.2vw, 88px);
+  font-size: clamp(54px, 7vw, 88px);
   line-height: 1;
   font-weight: 900;
   letter-spacing: 0.02em;
@@ -181,7 +170,7 @@ body {
 }
 
 .hero-subtitle {
-  margin-top: 18px;
+  margin-top: 16px;
   font-size: clamp(19px, 2vw, 33px);
   line-height: 1.2;
   font-weight: 800;
@@ -189,10 +178,10 @@ body {
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.42);
 }
 
-/* 吹き出し共通
-   ・文言変更はHTMLだけ
-   ・位置調整は各クラスで行う
-*/
+/* ========================================
+   吹き出し
+   ・位置は見本に寄せて固定
+======================================== */
 .speech {
   position: absolute;
   z-index: 4;
@@ -220,8 +209,8 @@ body {
 }
 
 .speech-left {
-  top: 315px;
-  left: 26px;
+  top: 298px;
+  left: 22px;
   width: 246px;
   min-height: 112px;
   border-radius: 60px;
@@ -234,8 +223,8 @@ body {
 }
 
 .speech-top {
-  top: 336px;
-  left: 332px;
+  top: 320px;
+  left: 330px;
   width: 336px;
   min-height: 82px;
   background: rgba(240, 250, 255, 0.98);
@@ -249,8 +238,8 @@ body {
 }
 
 .speech-center {
-  top: 431px;
-  left: 322px;
+  top: 412px;
+  left: 320px;
   width: 287px;
   min-height: 76px;
 }
@@ -261,11 +250,13 @@ body {
   clip-path: polygon(0 0, 100% 0, 20% 100%);
 }
 
-/* メインボタン */
+/* ========================================
+   メインボタン
+======================================== */
 .hero-button {
   position: absolute;
   left: 50%;
-  top: 610px;
+  top: 575px;
   transform: translateX(-50%);
   z-index: 5;
   display: inline-flex;
@@ -296,7 +287,7 @@ body {
 .hero-arrow {
   position: absolute;
   left: 50%;
-  top: 720px;
+  top: 690px;
   transform: translateX(-50%);
   z-index: 5;
   font-size: 78px;
@@ -307,7 +298,23 @@ body {
 }
 
 /* ========================================
-   セクション共通見出し
+   下背景エリア
+   ・ニュース以降は別画像に切り替える
+======================================== */
+.bottom-area {
+  position: relative;
+  margin-top: -20px;
+  padding-top: 18px;
+  background-image:
+    linear-gradient(180deg, rgba(5, 12, 28, 0.18) 0%, rgba(5, 12, 28, 0.06) 8%, rgba(5, 12, 28, 0.10) 100%),
+    url("./images/hero-btom.png");
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-position: center top, center top;
+}
+
+/* ========================================
+   セクション見出し
 ======================================== */
 .section-head {
   display: flex;
@@ -349,12 +356,11 @@ body {
 
 /* ========================================
    今日のニュース
-   ・見本より少し横幅を広げる
-   ・左2枚 / 右2枚の構成
+   ・左右の比率を見本に近づける
 ======================================== */
 .news-wrap {
   width: min(100% - 24px, 1320px);
-  margin: -32px auto 0;
+  margin: 0 auto;
 }
 
 .news-grid {
@@ -486,6 +492,10 @@ body {
 /* ========================================
    今日のポイント
 ======================================== */
+.today-point {
+  margin-top: 22px;
+}
+
 .point-card {
   position: relative;
   min-height: 245px;
@@ -561,8 +571,6 @@ body {
 
 /* ========================================
    最低限のレスポンシブ
-   ・スマホ完全対応は後回し
-   ・ただし極端な崩れだけ防ぐ
 ======================================== */
 @media (max-width: 900px) {
   .header-inner {
@@ -571,11 +579,11 @@ body {
   }
 
   .hero {
-    min-height: 820px;
+    height: 760px;
   }
 
   .hero-content {
-    min-height: 820px;
+    height: 760px;
   }
 
   .speech {
@@ -592,12 +600,12 @@ body {
 
   .hero-button {
     min-width: 280px;
-    top: 560px;
+    top: 520px;
     font-size: 22px;
   }
 
   .hero-arrow {
-    top: 648px;
+    top: 620px;
   }
 
   .news-wrap {
@@ -609,7 +617,7 @@ body {
   }
 
   .news-card-side {
-    min-height: 200px;
+    min-height: 220px;
   }
 
   .news-card-text-center-right {
