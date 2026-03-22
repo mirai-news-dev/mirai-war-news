@@ -35,13 +35,22 @@ a {
   text-decoration: none;
 }
 
+/* ========================================
+   body全体
+   ・hero-bg.png をページ全体背景として使う
+   ・スクロールしても世界観が続くようにする
+======================================== */
 body {
   min-height: 100vh;
   font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
   color: #ffffff;
-  background:
-    radial-gradient(circle at center, rgba(38, 96, 198, 0.18), transparent 35%),
-    linear-gradient(180deg, #060d1d 0%, #071126 45%, #08142a 100%);
+  background-image:
+    linear-gradient(180deg, rgba(4, 10, 24, 0.16) 0%, rgba(4, 10, 24, 0.30) 100%),
+    url("./images/hero-bg.png");
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-position: center top, center top;
+  background-color: #07101f;
 }
 
 /* ========================================
@@ -115,8 +124,8 @@ body {
 
 /* ========================================
    ヒーロー
-   ・送ってくれた見本に近い見え方になるように高さ固定
-   ・画像位置を動かさないため background-position を固定
+   ・背景そのものは body に移した
+   ・ここではヒーロー領域の見え方だけ調整する
 ======================================== */
 .hero {
   position: relative;
@@ -127,10 +136,11 @@ body {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url("./images/hero-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top;
+
+  /* ヒーロー専用の明るさ・光だけ重ねる */
+  background:
+    radial-gradient(circle at center, rgba(56, 124, 255, 0.10), transparent 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(7, 14, 28, 0.08) 100%);
 }
 
 .hero-overlay {
@@ -339,16 +349,18 @@ body {
 
 /* ========================================
    今日のニュース
-   ・元画像と同じように左2枚 / 右2枚の構成
+   ・見本より少し横幅を広げる
+   ・左2枚 / 右2枚の構成
 ======================================== */
 .news-wrap {
-  margin-top: -32px;
+  width: min(100% - 24px, 1320px);
+  margin: -32px auto 0;
 }
 
 .news-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 14px 18px;
+  grid-template-columns: 2.15fr 1fr;
+  gap: 16px 20px;
 }
 
 .news-card {
@@ -362,11 +374,11 @@ body {
 }
 
 .news-card-main {
-  min-height: 170px;
+  min-height: 182px;
 }
 
 .news-card-side {
-  min-height: 355px;
+  min-height: 380px;
 }
 
 .news-card-china {
@@ -586,6 +598,10 @@ body {
 
   .hero-arrow {
     top: 648px;
+  }
+
+  .news-wrap {
+    width: min(100% - 24px, 100%);
   }
 
   .news-grid {
