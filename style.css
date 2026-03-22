@@ -1,7 +1,5 @@
 /* ========================================
    リセット
-   ・ブラウザ差を減らすための基本設定
-   ・ここは消さないでOK
 ======================================== */
 *,
 *::before,
@@ -37,7 +35,6 @@ a {
 
 /* ========================================
    body 全体
-   ・背景色は画像が読み込まれない時の保険
 ======================================== */
 body {
   min-height: 100vh;
@@ -48,9 +45,7 @@ body {
 
 /* ========================================
    ページ全体背景
-   ・hero-bottom.png をページ全体に敷く
-   ・ヒーローの下からも背景がつながって見える
-   ・今回の重要ポイント
+   ・下背景を全体に敷く
 ======================================== */
 .page-bg {
   min-height: 100vh;
@@ -63,17 +58,13 @@ body {
 
 /* ========================================
    共通横幅
-   ・最大 1300px に拡大
-   ・カードが狭く見えないようにする
 ======================================== */
 .container {
   width: min(100% - 48px, 1300px);
   margin: 0 auto;
 }
 
-/* セクション間のつながり調整 */
 .section-block {
-  margin-top: 0;
   padding-top: 22px;
 }
 
@@ -83,8 +74,6 @@ body {
 
 /* ========================================
    ヘッダー
-   ・ヒーロー上に重ねる
-   ・透明感を持たせる
 ======================================== */
 .site-header {
   position: absolute;
@@ -136,27 +125,32 @@ body {
 
 /* ========================================
    ヒーロー
-   ・高さは 900px 固定
-   ・hero-top.png をここだけに表示
-   ・キャラクターがカードへかぶらないようにする
+   ・img方式で表示
+   ・高さ固定をやめて自然に見せる
 ======================================== */
 .hero {
   position: relative;
-  height: 900px;
   overflow: hidden;
+  width: 100%;
 }
 
-/* 上側背景 */
-.hero-top-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url("./images/hero-top.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top;
+/*
+  hero-top.png を img で表示
+  ・幅100%で表示
+  ・高さは自動で比率維持
+  ・キャラが切れにくい
+*/
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
 }
 
-/* 上から薄い暗さを重ねて文字を見やすくする */
+/*
+  薄い暗幕
+  ・タイトルや吹き出しを見やすくする
+*/
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -164,16 +158,45 @@ body {
     linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.06) 0%,
-      rgba(3, 9, 22, 0.10) 42%,
-      rgba(5, 11, 27, 0.20) 72%,
-      rgba(5, 11, 27, 0.28) 100%
+      rgba(3, 9, 22, 0.08) 40%,
+      rgba(5, 11, 27, 0.16) 75%,
+      rgba(5, 11, 27, 0.24) 100%
     );
+  pointer-events: none;
+  z-index: 2;
 }
 
+/*
+  下の背景へつなぐレイヤー
+  ・下に向かって徐々に page-bg に溶け込ませる
+  ・切れ目が見えにくくなる
+*/
+.hero-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 180px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6, 16, 31, 0) 0%,
+      rgba(6, 16, 31, 0.18) 30%,
+      rgba(6, 16, 31, 0.55) 68%,
+      rgba(6, 16, 31, 0.9) 100%
+    );
+  pointer-events: none;
+  z-index: 3;
+}
+
+/*
+  上に載せる文字エリア
+  ・画像の上に絶対配置
+*/
 .hero-content {
-  position: relative;
-  z-index: 2;
-  height: 900px;
+  position: absolute;
+  inset: 0;
+  z-index: 4;
 }
 
 /* ========================================
@@ -181,7 +204,7 @@ body {
 ======================================== */
 .hero-copy {
   position: absolute;
-  top: 105px;
+  top: 8%;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -210,12 +233,11 @@ body {
 
 /* ========================================
    吹き出し
-   ・後で文言変更しやすいようにHTMLで管理
-   ・位置はデザインに合わせて固定
+   ・位置は%で置いて横幅変化に少し強くする
 ======================================== */
 .speech {
   position: absolute;
-  z-index: 4;
+  z-index: 5;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -240,8 +262,8 @@ body {
 }
 
 .speech-left {
-  top: 320px;
-  left: 24px;
+  top: 37%;
+  left: 9%;
   width: 250px;
   min-height: 112px;
   border-radius: 60px;
@@ -254,8 +276,8 @@ body {
 }
 
 .speech-top {
-  top: 340px;
-  left: 325px;
+  top: 38.5%;
+  left: 36%;
   width: 350px;
   min-height: 82px;
   background: rgba(240, 250, 255, 0.98);
@@ -269,8 +291,8 @@ body {
 }
 
 .speech-center {
-  top: 435px;
-  left: 320px;
+  top: 48%;
+  left: 31%;
   width: 290px;
   min-height: 76px;
 }
@@ -283,14 +305,13 @@ body {
 
 /* ========================================
    メインボタン
-   ・発光ボタン
 ======================================== */
 .hero-button {
   position: absolute;
   left: 50%;
-  top: 680px;
+  top: 62%;
   transform: translateX(-50%);
-  z-index: 5;
+  z-index: 6;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -319,9 +340,9 @@ body {
 .hero-arrow {
   position: absolute;
   left: 50%;
-  top: 810px;
+  top: 75%;
   transform: translateX(-50%);
-  z-index: 5;
+  z-index: 6;
   font-size: 78px;
   line-height: 1;
   font-weight: 700;
@@ -372,10 +393,6 @@ body {
 
 /* ========================================
    今日のニュース
-   ・最大1300pxの中で横長カードを広く使う
-   ・左2：右1 の比率
-   ・カードにキャラがかぶらないのは
-     hero と section 背景を分けたから
 ======================================== */
 .news-wrap {
   margin-top: 0;
@@ -387,7 +404,6 @@ body {
   gap: 18px 22px;
 }
 
-/* 左列の上下2枚 */
 .news-card-main-top {
   grid-column: 1;
   grid-row: 1;
@@ -398,7 +414,6 @@ body {
   grid-row: 2;
 }
 
-/* 右列の上下2枚 */
 .news-card-side-top {
   grid-column: 2;
   grid-row: 1;
@@ -421,17 +436,14 @@ body {
     0 0 0 1px rgba(255, 255, 255, 0.06) inset;
 }
 
-/* 左側は横長 */
 .news-card-main {
   min-height: 205px;
 }
 
-/* 右側も狭すぎない高さにする */
 .news-card-side {
   min-height: 205px;
 }
 
-/* 各カード背景画像 */
 .news-card-main-top {
   background-image: url("./images/news-card-main-1.png");
 }
@@ -470,7 +482,6 @@ body {
   );
 }
 
-/* カード文字配置 */
 .news-card-text {
   position: absolute;
   z-index: 3;
@@ -623,9 +634,7 @@ body {
 }
 
 /* ========================================
-   最低限のレスポンシブ
-   ・今回は大きく崩さないための保険だけ
-   ・本格スマホ調整は後でOK
+   タブレット調整
 ======================================== */
 @media (max-width: 1100px) {
   .news-card-text-center-right {
@@ -643,40 +652,71 @@ body {
   }
 }
 
+/* ========================================
+   スマホ調整
+======================================== */
 @media (max-width: 900px) {
+  .container {
+    width: min(100% - 24px, 1300px);
+  }
+
   .header-inner {
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .hero {
-    height: 820px;
+  .hero-copy {
+    top: 10%;
   }
 
-  .hero-content {
-    height: 820px;
+  .hero-title {
+    font-size: clamp(34px, 9vw, 54px);
+  }
+
+  .hero-subtitle {
+    margin-top: 10px;
+    font-size: clamp(16px, 4vw, 24px);
   }
 
   .speech {
-    transform: scale(0.88);
+    transform: scale(0.78);
+  }
+
+  .speech-left {
+    top: 30%;
+    left: 0;
     transform-origin: top left;
   }
 
-  .speech-top,
-  .speech-center {
+  .speech-top {
+    top: 33%;
     left: 50%;
-    transform: translateX(-50%) scale(0.88);
+    transform: translateX(-50%) scale(0.78);
+    transform-origin: top center;
+  }
+
+  .speech-center {
+    top: 42%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.78);
     transform-origin: top center;
   }
 
   .hero-button {
-    min-width: 280px;
-    top: 570px;
-    font-size: 22px;
+    min-width: 250px;
+    min-height: 64px;
+    padding: 0 24px;
+    font-size: 20px;
+    top: 60%;
   }
 
   .hero-arrow {
-    top: 660px;
+    font-size: 56px;
+    top: 72%;
+  }
+
+  .hero-fade {
+    height: 110px;
   }
 
   .news-grid {
