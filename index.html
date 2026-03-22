@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WORLD NEWS TOUR</title>
   <meta name="description" content="世界の出来事をやさしく理解するニュース解説サイト" />
-  <link rel="stylesheet" href="style.css?v=20260322a" />
+  <link rel="stylesheet" href="style.css?v=20260322b" />
 </head>
 <body>
   <!-- ========================================
@@ -36,9 +36,9 @@
   <main>
     <!-- ========================================
          ヒーロー
-         ・背景画像は hero-bg.png を使用
+         ・背景画像そのものは body 全体背景で表示
+         ・ここでは暗さや光の重なりだけ調整
          ・文字は画像に埋め込まず、HTML/CSSで重ねる
-         ・あとで吹き出しだけ文言変更しやすい構造
     ======================================== -->
     <section class="hero">
       <div class="hero-bg"></div>
@@ -53,7 +53,7 @@
 
         <!-- 吹き出し
              ・あとで文言だけ変える場所
-             ・位置は元画像の見た目に合わせて固定
+             ・位置は見本の見た目に合わせて固定
         -->
         <div class="speech speech-left">最近ニュースが<br>厳かしいね</div>
         <div class="speech speech-top">実は全部つながってるんだ</div>
@@ -69,12 +69,12 @@
 
     <!-- ========================================
          今日のニュース
-         ・カード画像をそのまま背景に使う
+         ・カード画像を背景として使う
          ・文字は全部HTML/CSSで重ねる
-         ・あとでニュースごとに文字差し替えできる
+         ・横幅を見本より広めに調整
     ======================================== -->
     <section class="today-news section-block">
-      <div class="container news-wrap">
+      <div class="news-wrap">
         <div class="section-head section-head-row">
           <h2 class="section-title"><span class="section-icon fire">🔥</span>今日のニュース</h2>
           <a href="news.html" class="section-more">新着記事</a>
@@ -128,7 +128,6 @@
          今日のポイント
          ・ point-card-1.png を背景で使う
          ・吹き出しはHTML/CSSで重ねる
-         ・後から文言差し替えしやすい
     ======================================== -->
     <section class="today-point section-block section-block-last">
       <div class="container">
