@@ -1,7 +1,7 @@
 /* ========================================
    リセット
-   ・ここは消さない
    ・ブラウザ差を減らすための基本設定
+   ・ここは消さないでOK
 ======================================== */
 *,
 *::before,
@@ -36,35 +36,55 @@ a {
 }
 
 /* ========================================
-   body全体
-   ・背景画像は分割したので body はシンプルにする
+   body 全体
+   ・背景色は画像が読み込まれない時の保険
 ======================================== */
 body {
   min-height: 100vh;
   font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
   color: #ffffff;
-  background-color: #060d1d;
+  background-color: #06101f;
 }
 
 /* ========================================
-   共通幅
+   ページ全体背景
+   ・hero-bottom.png をページ全体に敷く
+   ・ヒーローの下からも背景がつながって見える
+   ・ここが今回の重要ポイント
+======================================== */
+.page-bg {
+  min-height: 100vh;
+  background-image: url("./images/hero-bottom.png");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  background-position: center top;
+  position: relative;
+}
+
+/* ========================================
+   共通横幅
+   ・最大 1300px に拡大
+   ・カードが狭く見えないようにする
 ======================================== */
 .container {
-  width: min(100% - 48px, 1180px);
+  width: min(100% - 48px, 1300px);
   margin: 0 auto;
 }
 
+/* セクション間のつながり調整 */
 .section-block {
   margin-top: 0;
+  padding-top: 22px;
 }
 
 .section-block-last {
-  padding-bottom: 56px;
+  padding-bottom: 60px;
 }
 
 /* ========================================
    ヘッダー
-   ・上に薄く置く
+   ・ヒーロー上に重ねる
+   ・透明感を持たせる
 ======================================== */
 .site-header {
   position: absolute;
@@ -82,8 +102,8 @@ body {
   gap: 20px;
   padding: 12px 18px;
   border-radius: 999px;
-  background: rgba(6, 16, 37, 0.28);
-  border: 1px solid rgba(167, 206, 255, 0.12);
+  background: rgba(6, 16, 37, 0.34);
+  border: 1px solid rgba(167, 206, 255, 0.14);
   backdrop-filter: blur(10px);
 }
 
@@ -104,7 +124,7 @@ body {
 .login-link,
 .register-link {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.94);
 }
 
 .register-link {
@@ -116,15 +136,18 @@ body {
 
 /* ========================================
    ヒーロー
-   ・上背景だけ使う
+   ・高さは 900px 固定
+   ・hero-top.png をここだけに表示
+   ・キャラクターがカードへかぶらないようにする
 ======================================== */
 .hero {
   position: relative;
-  height: 920px;
+  height: 900px;
   overflow: hidden;
 }
 
-.hero-bg {
+/* 上側背景 */
+.hero-top-bg {
   position: absolute;
   inset: 0;
   background-image: url("./images/hero-top.png");
@@ -133,25 +156,32 @@ body {
   background-position: center top;
 }
 
+/* 上から薄い暗さを重ねて文字を見やすくする */
 .hero-overlay {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(3, 9, 22, 0.06) 35%, rgba(5, 11, 27, 0.10) 65%, rgba(5, 11, 27, 0.14) 100%);
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.06) 0%,
+      rgba(3, 9, 22, 0.10) 42%,
+      rgba(5, 11, 27, 0.20) 72%,
+      rgba(5, 11, 27, 0.28) 100%
+    );
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  height: 920px;
+  height: 900px;
 }
 
 /* ========================================
-   タイトル
+   ヒーロータイトル
 ======================================== */
 .hero-copy {
   position: absolute;
-  top: 84px;
+  top: 105px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -166,11 +196,11 @@ body {
   color: #ffffff;
   text-shadow:
     0 6px 18px rgba(0, 0, 0, 0.45),
-    0 0 18px rgba(118, 170, 255, 0.18);
+    0 0 18px rgba(118, 170, 255, 0.20);
 }
 
 .hero-subtitle {
-  margin-top: 16px;
+  margin-top: 18px;
   font-size: clamp(19px, 2vw, 33px);
   line-height: 1.2;
   font-weight: 800;
@@ -180,7 +210,8 @@ body {
 
 /* ========================================
    吹き出し
-   ・位置は見本に寄せて固定
+   ・後で文言変更しやすいようにHTMLで管理
+   ・位置はデザインに合わせて固定
 ======================================== */
 .speech {
   position: absolute;
@@ -209,9 +240,9 @@ body {
 }
 
 .speech-left {
-  top: 298px;
-  left: 22px;
-  width: 246px;
+  top: 320px;
+  left: 24px;
+  width: 250px;
   min-height: 112px;
   border-radius: 60px;
 }
@@ -223,9 +254,9 @@ body {
 }
 
 .speech-top {
-  top: 320px;
-  left: 330px;
-  width: 336px;
+  top: 340px;
+  left: 325px;
+  width: 350px;
   min-height: 82px;
   background: rgba(240, 250, 255, 0.98);
 }
@@ -238,9 +269,9 @@ body {
 }
 
 .speech-center {
-  top: 412px;
+  top: 435px;
   left: 320px;
-  width: 287px;
+  width: 290px;
   min-height: 76px;
 }
 
@@ -252,11 +283,12 @@ body {
 
 /* ========================================
    メインボタン
+   ・発光ボタン
 ======================================== */
 .hero-button {
   position: absolute;
   left: 50%;
-  top: 575px;
+  top: 620px;
   transform: translateX(-50%);
   z-index: 5;
   display: inline-flex;
@@ -287,7 +319,7 @@ body {
 .hero-arrow {
   position: absolute;
   left: 50%;
-  top: 690px;
+  top: 735px;
   transform: translateX(-50%);
   z-index: 5;
   font-size: 78px;
@@ -298,23 +330,7 @@ body {
 }
 
 /* ========================================
-   下背景エリア
-   ・ニュース以降は別画像に切り替える
-======================================== */
-.bottom-area {
-  position: relative;
-  margin-top: -20px;
-  padding-top: 18px;
-  background-image:
-    linear-gradient(180deg, rgba(5, 12, 28, 0.18) 0%, rgba(5, 12, 28, 0.06) 8%, rgba(5, 12, 28, 0.10) 100%),
-    url("./images/hero-btom.png");
-  background-repeat: no-repeat, no-repeat;
-  background-size: cover, cover;
-  background-position: center top, center top;
-}
-
-/* ========================================
-   セクション見出し
+   セクション共通見出し
 ======================================== */
 .section-head {
   display: flex;
@@ -324,7 +340,7 @@ body {
 }
 
 .section-head-row {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .section-title {
@@ -356,50 +372,79 @@ body {
 
 /* ========================================
    今日のニュース
-   ・左右の比率を見本に近づける
+   ・最大1300pxの中で横長カードを広く使う
+   ・左2：右1 の比率
+   ・カードにキャラがかぶらないのは
+     hero と section 背景を分けたから
 ======================================== */
 .news-wrap {
-  width: min(100% - 24px, 1320px);
-  margin: 0 auto;
+  margin-top: 0;
 }
 
 .news-grid {
   display: grid;
-  grid-template-columns: 2.15fr 1fr;
-  gap: 16px 20px;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px 22px;
+}
+
+/* 左列の上下2枚 */
+.news-card-main-top {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.news-card-main-bottom {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+/* 右列の上下2枚 */
+.news-card-side-top {
+  grid-column: 2;
+  grid-row: 1 / span 1;
+}
+
+.news-card-side-bottom {
+  grid-column: 2;
+  grid-row: 2 / span 1;
 }
 
 .news-card {
   position: relative;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 28px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24);
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
 }
 
+/* 左側は横長 */
 .news-card-main {
-  min-height: 182px;
+  min-height: 205px;
 }
 
+/* 右側は縦長すぎないように調整 */
 .news-card-side {
-  min-height: 380px;
+  min-height: 205px;
 }
 
-.news-card-china {
+/* 各カード背景画像 */
+.news-card-main-top {
   background-image: url("./images/news-card-main-1.png");
 }
 
-.news-card-oil-top {
+.news-card-side-top {
   background-image: url("./images/news-card-sub-1.png");
 }
 
-.news-card-oil-girl {
+.news-card-side-bottom {
   background-image: url("./images/news-card-sub-2.png");
 }
 
-.news-card-war {
+.news-card-main-bottom {
   background-image: url("./images/news-card-sub-3.png");
 }
 
@@ -409,43 +454,49 @@ body {
 }
 
 .news-card-overlay-dark {
-  background: linear-gradient(90deg, rgba(6, 15, 36, 0.34) 0%, rgba(6, 15, 36, 0.12) 55%, rgba(6, 15, 36, 0.02) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(6, 15, 36, 0.40) 0%,
+    rgba(6, 15, 36, 0.16) 56%,
+    rgba(6, 15, 36, 0.05) 100%
+  );
 }
 
 .news-card-overlay-soft {
-  background: linear-gradient(180deg, rgba(6, 15, 36, 0.10) 0%, rgba(6, 15, 36, 0.22) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(6, 15, 36, 0.12) 0%,
+    rgba(6, 15, 36, 0.25) 100%
+  );
 }
 
+/* カード文字配置 */
 .news-card-text {
   position: absolute;
   z-index: 3;
 }
 
 .news-card-text-left {
-  top: 18px;
-  left: 18px;
-  right: 18px;
+  top: 22px;
+  left: 22px;
+  right: 22px;
 }
 
 .news-card-text-bottom-left {
-  left: 18px;
-  right: 18px;
+  left: 20px;
+  right: 20px;
   bottom: 18px;
 }
 
-.text-right-card {
-  bottom: 20px;
-}
-
 .news-card-text-center-right {
-  top: 18px;
-  right: 20px;
-  left: 210px;
+  top: 22px;
+  right: 24px;
+  left: 300px;
   text-align: center;
 }
 
 .news-title {
-  font-size: clamp(22px, 2.1vw, 36px);
+  font-size: clamp(22px, 2vw, 36px);
   line-height: 1.2;
   font-weight: 900;
   color: #ffffff;
@@ -470,13 +521,13 @@ body {
 }
 
 .news-bubble-small {
-  font-size: clamp(18px, 1.5vw, 26px);
+  font-size: clamp(18px, 1.4vw, 24px);
 }
 
 .read-link {
   display: inline-flex;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 18px;
   font-size: clamp(18px, 1.4vw, 24px);
   font-weight: 700;
   color: #d5ebff;
@@ -492,16 +543,14 @@ body {
 /* ========================================
    今日のポイント
 ======================================== */
-.today-point {
-  margin-top: 22px;
-}
-
 .point-card {
   position: relative;
   min-height: 245px;
   overflow: hidden;
   border-radius: 28px;
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
 }
 
 .point-bg {
@@ -516,7 +565,11 @@ body {
 .point-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(7, 16, 38, 0.04) 0%, rgba(7, 16, 38, 0.10) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(7, 16, 38, 0.04) 0%,
+    rgba(7, 16, 38, 0.10) 100%
+  );
 }
 
 .point-bubble {
@@ -537,18 +590,18 @@ body {
 }
 
 .point-bubble-left {
-  top: 36px;
-  left: 212px;
+  top: 34px;
+  left: 180px;
 }
 
 .point-bubble-top-right {
   top: 34px;
-  right: 148px;
+  right: 110px;
 }
 
 .point-bubble-bottom-right {
   top: 108px;
-  right: 168px;
+  right: 95px;
 }
 
 .point-link {
@@ -571,7 +624,25 @@ body {
 
 /* ========================================
    最低限のレスポンシブ
+   ・今回は大きく崩さないための保険だけ
+   ・本格スマホ調整は後でOK
 ======================================== */
+@media (max-width: 1100px) {
+  .news-card-text-center-right {
+    left: 180px;
+  }
+
+  .speech-top {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .speech-center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 @media (max-width: 900px) {
   .header-inner {
     flex-wrap: wrap;
@@ -579,11 +650,11 @@ body {
   }
 
   .hero {
-    height: 760px;
+    height: 820px;
   }
 
   .hero-content {
-    height: 760px;
+    height: 820px;
   }
 
   .speech {
@@ -600,28 +671,33 @@ body {
 
   .hero-button {
     min-width: 280px;
-    top: 520px;
+    top: 570px;
     font-size: 22px;
   }
 
   .hero-arrow {
-    top: 620px;
-  }
-
-  .news-wrap {
-    width: min(100% - 24px, 100%);
+    top: 660px;
   }
 
   .news-grid {
     grid-template-columns: 1fr;
   }
 
+  .news-card-main-top,
+  .news-card-main-bottom,
+  .news-card-side-top,
+  .news-card-side-bottom {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .news-card-main,
   .news-card-side {
     min-height: 220px;
   }
 
   .news-card-text-center-right {
-    left: 130px;
+    left: 120px;
   }
 
   .point-bubble-left,
