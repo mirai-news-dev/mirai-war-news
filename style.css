@@ -1,0 +1,619 @@
+/* ========================================
+   リセット
+   ・ここは消さない
+   ・ブラウザ差を減らすための基本設定
+======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at center, rgba(38, 96, 198, 0.18), transparent 35%),
+    linear-gradient(180deg, #060d1d 0%, #071126 45%, #08142a 100%);
+}
+
+/* ========================================
+   共通幅
+======================================== */
+.container {
+  width: min(100% - 48px, 1180px);
+  margin: 0 auto;
+}
+
+.section-block {
+  margin-top: -24px;
+}
+
+.section-block-last {
+  padding-bottom: 48px;
+}
+
+/* ========================================
+   ヘッダー
+   ・元画像には見えていないが、実サイト用に上へ薄く配置
+   ・邪魔しないよう透明感強め
+======================================== */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 30;
+  padding: 18px 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(6, 16, 37, 0.28);
+  border: 1px solid rgba(167, 206, 255, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.site-logo {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.main-nav,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.main-nav a,
+.login-link,
+.register-link {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.register-link {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(82, 201, 255, 0.95), rgba(62, 120, 255, 0.95));
+  box-shadow: 0 0 18px rgba(59, 145, 255, 0.35);
+}
+
+/* ========================================
+   ヒーロー
+   ・送ってくれた見本に近い見え方になるように高さ固定
+   ・画像位置を動かさないため background-position を固定
+======================================== */
+.hero {
+  position: relative;
+  min-height: 975px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("./images/hero-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(3, 9, 22, 0.08) 38%, rgba(5, 11, 27, 0.18) 64%, rgba(5, 11, 27, 0.22) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  min-height: 975px;
+}
+
+/* タイトル位置
+   ・元画像の中央上に配置
+   ・文字だけ後で修正しやすいようHTMLで置く
+*/
+.hero-copy {
+  position: absolute;
+  top: 102px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: clamp(54px, 7.2vw, 88px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.45),
+    0 0 18px rgba(118, 170, 255, 0.18);
+}
+
+.hero-subtitle {
+  margin-top: 18px;
+  font-size: clamp(19px, 2vw, 33px);
+  line-height: 1.2;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.42);
+}
+
+/* 吹き出し共通
+   ・文言変更はHTMLだけ
+   ・位置調整は各クラスで行う
+*/
+.speech {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+  padding: 16px 28px;
+  background: rgba(255, 250, 238, 0.97);
+  color: #29345e;
+  border-radius: 999px;
+  font-size: clamp(17px, 2vw, 27px);
+  line-height: 1.35;
+  font-weight: 800;
+  text-align: center;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.speech::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 250, 238, 0.97);
+}
+
+.speech-left {
+  top: 315px;
+  left: 26px;
+  width: 246px;
+  min-height: 112px;
+  border-radius: 60px;
+}
+
+.speech-left::after {
+  bottom: -9px;
+  left: 58px;
+  clip-path: polygon(0 0, 100% 0, 15% 100%);
+}
+
+.speech-top {
+  top: 336px;
+  left: 332px;
+  width: 336px;
+  min-height: 82px;
+  background: rgba(240, 250, 255, 0.98);
+}
+
+.speech-top::after {
+  bottom: -10px;
+  right: 62px;
+  background: rgba(240, 250, 255, 0.98);
+  clip-path: polygon(0 0, 100% 0, 78% 100%);
+}
+
+.speech-center {
+  top: 431px;
+  left: 322px;
+  width: 287px;
+  min-height: 76px;
+}
+
+.speech-center::after {
+  bottom: -9px;
+  left: 48px;
+  clip-path: polygon(0 0, 100% 0, 20% 100%);
+}
+
+/* メインボタン */
+.hero-button {
+  position: absolute;
+  left: 50%;
+  top: 610px;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 360px;
+  min-height: 84px;
+  padding: 0 34px;
+  border-radius: 999px;
+  font-size: clamp(24px, 2.2vw, 36px);
+  font-weight: 800;
+  color: #eaf9ff;
+  background: linear-gradient(180deg, rgba(84, 214, 255, 0.35), rgba(53, 112, 255, 0.42));
+  border: 2px solid rgba(154, 232, 255, 0.58);
+  box-shadow:
+    0 0 0 3px rgba(70, 166, 255, 0.18) inset,
+    0 0 26px rgba(80, 195, 255, 0.45),
+    0 10px 28px rgba(0, 0, 0, 0.18);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+}
+
+.hero-button::after {
+  content: "›";
+  margin-left: 14px;
+  font-size: 1.08em;
+}
+
+.hero-arrow {
+  position: absolute;
+  left: 50%;
+  top: 720px;
+  transform: translateX(-50%);
+  z-index: 5;
+  font-size: 78px;
+  line-height: 1;
+  font-weight: 700;
+  color: #b8ecff;
+  text-shadow: 0 0 18px rgba(102, 197, 255, 0.48);
+}
+
+/* ========================================
+   セクション共通見出し
+======================================== */
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.section-head-row {
+  margin-bottom: 12px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(28px, 3.4vw, 48px);
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.28);
+}
+
+.section-icon {
+  display: inline-block;
+  font-size: 0.8em;
+}
+
+.section-more {
+  font-size: clamp(16px, 1.5vw, 24px);
+  font-weight: 700;
+  color: #dcedff;
+}
+
+.section-more::after {
+  content: "›";
+  margin-left: 8px;
+  font-size: 1.1em;
+}
+
+/* ========================================
+   今日のニュース
+   ・元画像と同じように左2枚 / 右2枚の構成
+======================================== */
+.news-wrap {
+  margin-top: -32px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px 18px;
+}
+
+.news-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24);
+}
+
+.news-card-main {
+  min-height: 170px;
+}
+
+.news-card-side {
+  min-height: 355px;
+}
+
+.news-card-china {
+  background-image: url("./images/news-card-main-1.png");
+}
+
+.news-card-oil-top {
+  background-image: url("./images/news-card-sub-1.png");
+}
+
+.news-card-oil-girl {
+  background-image: url("./images/news-card-sub-2.png");
+}
+
+.news-card-war {
+  background-image: url("./images/news-card-sub-3.png");
+}
+
+.news-card-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.news-card-overlay-dark {
+  background: linear-gradient(90deg, rgba(6, 15, 36, 0.34) 0%, rgba(6, 15, 36, 0.12) 55%, rgba(6, 15, 36, 0.02) 100%);
+}
+
+.news-card-overlay-soft {
+  background: linear-gradient(180deg, rgba(6, 15, 36, 0.10) 0%, rgba(6, 15, 36, 0.22) 100%);
+}
+
+.news-card-text {
+  position: absolute;
+  z-index: 3;
+}
+
+.news-card-text-left {
+  top: 18px;
+  left: 18px;
+  right: 18px;
+}
+
+.news-card-text-bottom-left {
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+}
+
+.text-right-card {
+  bottom: 20px;
+}
+
+.news-card-text-center-right {
+  top: 18px;
+  right: 20px;
+  left: 210px;
+  text-align: center;
+}
+
+.news-title {
+  font-size: clamp(22px, 2.1vw, 36px);
+  line-height: 1.2;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.26);
+}
+
+.news-title-yellow {
+  color: #ffd24a;
+}
+
+.news-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  padding: 10px 26px;
+  background: rgba(248, 250, 248, 0.97);
+  color: #3b4058;
+  border-radius: 999px;
+  font-weight: 800;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.14);
+}
+
+.news-bubble-small {
+  font-size: clamp(18px, 1.5vw, 26px);
+}
+
+.read-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 20px;
+  font-size: clamp(18px, 1.4vw, 24px);
+  font-weight: 700;
+  color: #d5ebff;
+}
+
+.read-link span {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 1.35em;
+  line-height: 1;
+}
+
+/* ========================================
+   今日のポイント
+======================================== */
+.point-card {
+  position: relative;
+  min-height: 245px;
+  overflow: hidden;
+  border-radius: 28px;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
+}
+
+.point-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("./images/point-card-1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.point-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 16, 38, 0.04) 0%, rgba(7, 16, 38, 0.10) 100%);
+}
+
+.point-bubble {
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 10px 24px;
+  background: rgba(255, 250, 238, 0.97);
+  color: #313a58;
+  border-radius: 999px;
+  font-size: clamp(20px, 1.7vw, 30px);
+  line-height: 1.25;
+  font-weight: 800;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
+}
+
+.point-bubble-left {
+  top: 36px;
+  left: 212px;
+}
+
+.point-bubble-top-right {
+  top: 34px;
+  right: 148px;
+}
+
+.point-bubble-bottom-right {
+  top: 108px;
+  right: 168px;
+}
+
+.point-link {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(18px, 1.4vw, 24px);
+  font-weight: 700;
+  color: #d8ecff;
+}
+
+.point-link span {
+  margin-left: 8px;
+  font-size: 1.35em;
+}
+
+/* ========================================
+   最低限のレスポンシブ
+   ・スマホ完全対応は後回し
+   ・ただし極端な崩れだけ防ぐ
+======================================== */
+@media (max-width: 900px) {
+  .header-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    min-height: 820px;
+  }
+
+  .hero-content {
+    min-height: 820px;
+  }
+
+  .speech {
+    transform: scale(0.88);
+    transform-origin: top left;
+  }
+
+  .speech-top,
+  .speech-center {
+    left: 50%;
+    transform: translateX(-50%) scale(0.88);
+    transform-origin: top center;
+  }
+
+  .hero-button {
+    min-width: 280px;
+    top: 560px;
+    font-size: 22px;
+  }
+
+  .hero-arrow {
+    top: 648px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card-side {
+    min-height: 200px;
+  }
+
+  .news-card-text-center-right {
+    left: 130px;
+  }
+
+  .point-bubble-left,
+  .point-bubble-top-right,
+  .point-bubble-bottom-right {
+    position: static;
+    display: block;
+    width: fit-content;
+    margin: 16px auto 0;
+  }
+
+  .point-card {
+    padding: 20px 16px 56px;
+  }
+
+  .point-link {
+    bottom: 14px;
+  }
+}
