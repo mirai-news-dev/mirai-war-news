@@ -5,121 +5,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WORLD NEWS TOUR</title>
   <meta name="description" content="世界の出来事をやさしく理解するニュース解説サイト" />
-  <link rel="stylesheet" href="style.css?v=20260322c" />
+
+  <!--
+    CSS読み込み
+    ・style.css を読み込みます
+    ・?v= はキャッシュ対策です
+    ・反映されない時は数字や文字を変えると更新されやすいです
+  -->
+  <link rel="stylesheet" href="style.css?v=20260322b" />
 </head>
 <body>
-
   <!-- ========================================
-       ヘッダー
-       ・今は見た目だけ
-       ・右上にログイン導線を置く
-       ・後でURLだけ差し替えれば使える
+       ページ全体ラッパー
+       ・下側の背景 hero-bottom.png を全体に敷くための箱
+       ・ヒーロー以外にも同じ世界観の背景が続くようにする
   ======================================== -->
-  <header class="site-header">
-    <div class="header-inner container">
-      <div class="header-left">
-        <a href="index.html" class="site-logo">WORLD NEWS TOUR</a>
-      </div>
-
-      <nav class="main-nav" aria-label="メインナビゲーション">
-        <a href="index.html">ホーム</a>
-        <a href="news.html">ニュース</a>
-        <a href="history.html">年歴</a>
-      </nav>
-
-      <div class="header-right">
-        <a href="login.html" class="login-link">ログイン</a>
-        <a href="login.html" class="register-link">会員登録</a>
-      </div>
-    </div>
-  </header>
-
-  <main class="page-main">
-
+  <div class="page-bg">
     <!-- ========================================
-         ヒーロー
-         ・上背景は hero-top.png
-         ・タイトル、吹き出し、ボタンは画像に埋め込まない
-         ・あとで文言や位置を調整しやすい構造
+         ヘッダー
+         ・今は見た目用
+         ・あとでリンク先だけ変えれば使えます
     ======================================== -->
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content container">
-        <!-- タイトル -->
-        <div class="hero-copy">
-          <h1 class="hero-title">WORLD NEWS TOUR</h1>
-          <p class="hero-subtitle">世界の出来事をやさしく理解する</p>
+    <header class="site-header">
+      <div class="header-inner container">
+        <div class="header-left">
+          <a href="index.html" class="site-logo">WORLD NEWS TOUR</a>
         </div>
 
-        <!-- 吹き出し -->
-        <div class="speech speech-left">最近ニュースが<br>厳かしいね</div>
-        <div class="speech speech-top">実は全部つながってるんだ</div>
-        <div class="speech speech-center">え？どういうこと？</div>
+        <nav class="main-nav" aria-label="メインナビゲーション">
+          <a href="index.html">ホーム</a>
+          <a href="news.html">ニュース</a>
+          <a href="history.html">年表</a>
+        </nav>
 
-        <!-- メインボタン -->
-        <a href="news.html" class="hero-button">世界のニュースを見てみる</a>
-
-        <!-- 下向き矢印 -->
-        <div class="hero-arrow" aria-hidden="true">⌄</div>
+        <div class="header-right">
+          <a href="login.html" class="login-link">ログイン</a>
+          <a href="login.html" class="register-link">会員登録</a>
+        </div>
       </div>
-    </section>
+    </header>
 
-    <!-- ========================================
-         下背景エリア
-         ・ hero-btom.png を下全体の背景として使う
-         ・ 今日のニュースから下はこの背景の上に載せる
-    ======================================== -->
-    <div class="bottom-area">
+    <main>
+      <!-- ========================================
+           ヒーロー
+           ・高さは 900px 固定
+           ・上背景 hero-top.png を使う
+           ・キャラクターはこの中だけに見せる
+      ======================================== -->
+      <section class="hero">
+        <!--
+          上側背景
+          ・世界地図＋キャラクター用
+          ・ヒーロー部分だけに表示する
+        -->
+        <div class="hero-top-bg"></div>
+
+        <!--
+          暗めの重ねレイヤー
+          ・文字を読みやすくするために薄く重ねる
+        -->
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content container">
+          <!-- タイトル -->
+          <div class="hero-copy">
+            <h1 class="hero-title">WORLD NEWS TOUR</h1>
+            <p class="hero-subtitle">世界の出来事をやさしく理解する</p>
+          </div>
+
+          <!--
+            吹き出し
+            ・今は位置だけ用意
+            ・あとでCSSで調整や追加しやすい構造
+          -->
+          <div class="speech speech-left">最近ニュースって<br>むずかしいね</div>
+          <div class="speech speech-top">実は全部つながってるんだ</div>
+          <div class="speech speech-center">え？どういうこと？</div>
+
+          <!-- メインボタン -->
+          <a href="news.html" class="hero-button">世界のニュースを見てみる</a>
+
+          <!-- 下向き矢印 -->
+          <div class="hero-arrow" aria-hidden="true">⌄</div>
+        </div>
+      </section>
 
       <!-- ========================================
            今日のニュース
+           ・背景は page-bg 側で hero-bottom.png を全体表示
+           ・カード画像は background-image で表示
+           ・文字は上に重ねる
       ======================================== -->
       <section class="today-news section-block">
-        <div class="news-wrap">
+        <div class="container news-wrap">
           <div class="section-head section-head-row">
             <h2 class="section-title"><span class="section-icon fire">🔥</span>今日のニュース</h2>
             <a href="news.html" class="section-more">新着記事</a>
           </div>
 
           <div class="news-grid">
-            <!-- 左上の大カード -->
-            <article class="news-card news-card-main news-card-china">
+            <!-- 左上：大カード -->
+            <article class="news-card news-card-main news-card-main-top">
               <div class="news-card-overlay news-card-overlay-dark"></div>
               <div class="news-card-text news-card-text-left">
-                <h3 class="news-title news-title-yellow">中国経済が壊れている理由</h3>
-                <p class="news-bubble news-bubble-small">不動産が原因なんだ</p>
+                <h3 class="news-title news-title-yellow">中国経済が揺れる理由</h3>
+                <p class="news-bubble news-bubble-small">不動産問題が大きいんだ</p>
                 <a href="article.html" class="read-link">続きを読む <span>›</span></a>
               </div>
             </article>
 
-            <!-- 右上の小カード -->
-            <article class="news-card news-card-side news-card-oil-top">
+            <!-- 右上：小カード -->
+            <article class="news-card news-card-side news-card-side-top">
               <div class="news-card-overlay news-card-overlay-soft"></div>
               <div class="news-card-text news-card-text-bottom-left">
                 <h3 class="news-title">原油価格が上昇</h3>
-                <p class="news-bubble news-bubble-small">ガソリン高くなる？</p>
+                <p class="news-bubble news-bubble-small">ガソリン代に影響？</p>
                 <a href="article.html" class="read-link">続きを読む <span>›</span></a>
               </div>
             </article>
 
-            <!-- 左下の横カード -->
-            <article class="news-card news-card-main news-card-war">
+            <!-- 左下：大カード -->
+            <article class="news-card news-card-main news-card-main-bottom">
               <div class="news-card-overlay news-card-overlay-dark"></div>
               <div class="news-card-text news-card-text-center-right">
-                <h3 class="news-title">原油価格が上昇</h3>
-                <p class="news-bubble news-bubble-small">ガソリン高くなる？</p>
+                <h3 class="news-title">世界の緊張で資源高へ</h3>
+                <p class="news-bubble news-bubble-small">日本の生活にも関係するよ</p>
                 <a href="article.html" class="read-link">続きを読む <span>›</span></a>
               </div>
             </article>
 
-            <!-- 右下の小カード -->
-            <article class="news-card news-card-side news-card-oil-girl">
+            <!-- 右下：小カード -->
+            <article class="news-card news-card-side news-card-side-bottom">
               <div class="news-card-overlay news-card-overlay-soft"></div>
-              <div class="news-card-text news-card-text-bottom-left text-right-card">
-                <h3 class="news-title">原油価格が上昇</h3>
-                <p class="news-bubble news-bubble-small">ガソリン高くなる？</p>
+              <div class="news-card-text news-card-text-bottom-left">
+                <h3 class="news-title">エネルギー不安が拡大</h3>
+                <p class="news-bubble news-bubble-small">電気代はどうなる？</p>
                 <a href="article.html" class="read-link">続きを読む <span>›</span></a>
               </div>
             </article>
@@ -129,6 +149,8 @@
 
       <!-- ========================================
            今日のポイント
+           ・point-card-1.png を背景に使う
+           ・文字は上に重ねる
       ======================================== -->
       <section class="today-point section-block section-block-last">
         <div class="container">
@@ -140,16 +162,15 @@
             <div class="point-bg"></div>
             <div class="point-overlay"></div>
 
-            <div class="point-bubble point-bubble-left">つまり戦争が近きると</div>
-            <div class="point-bubble point-bubble-top-right">エネルギー飢希変、</div>
-            <div class="point-bubble point-bubble-bottom-right">エネルギーが刈く</div>
+            <div class="point-bubble point-bubble-left">つまり戦争や対立が強まると</div>
+            <div class="point-bubble point-bubble-top-right">エネルギー価格が上がって</div>
+            <div class="point-bubble point-bubble-bottom-right">日本の生活費にも影響する</div>
 
             <a href="article.html" class="point-link">続きを読む <span>›</span></a>
           </div>
         </div>
       </section>
-
-    </div>
-  </main>
+    </main>
+  </div>
 </body>
 </html>
